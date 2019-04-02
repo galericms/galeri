@@ -1,4 +1,4 @@
-# project-cms
+# Galeri
 
 ## Goal
 
