@@ -4,6 +4,6 @@
 
 ## TODO:
 - [ ] Create arch
-- [ ] Draw wireframe diagram
+- [ ] Create wireframes
 - [ ] Do the codes
 
