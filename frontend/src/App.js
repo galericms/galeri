@@ -29,11 +29,13 @@ class App extends Component {
         return (
             <Router>
                 <Header title={this.state.title} />
-                <Route path='/' exact component={Home} />
-                <Route path='/about' component={About} />
-                <Route path='/signup' component={SignUp} />
-                <Route path='/login' component={Login} />
-                <Footer />
+                <div className='container'>
+                    <Route path='/' exact component={Home} />
+                    <Route path='/about' component={About} />
+                    <Route path='/signup' component={SignUp} />
+                    <Route path='/login' component={Login} />
+                    <Footer />
+                </div>
             </Router>
         );
     }
