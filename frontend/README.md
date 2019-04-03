@@ -10,7 +10,7 @@ npm install
 
 ## Dev
 ```console
-npm run dev
+npm run start
 ```
 
 ## Build

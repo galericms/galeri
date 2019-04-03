@@ -3,7 +3,7 @@
 > This will be the top level architecture for the frontend of the galericms repo.
 
 ## TODO:
-- [ ] Create technical arch
+- [ ] Create technical architecture
 - [ ] Create wireframes
 - [ ] Do the codes
 

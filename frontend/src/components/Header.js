@@ -8,14 +8,14 @@ export default class Header extends Component {
         super(props);
 
         this.state = {
-            qry: ""
+            query: ""
         };
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state.qry);
-        window.alert(`You searched: ${this.state.qry}`);
+        console.log(this.state.query);
+        window.alert(`You searched: ${this.state.query}`);
     };
 
     handleChange = e => {
@@ -36,7 +36,7 @@ export default class Header extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <input
                                 type='text'
-                                name='qry'
+                                name='query'
                                 placeholder='Search Projects'
                                 onChange={this.handleChange}
                             />
