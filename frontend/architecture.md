@@ -22,7 +22,7 @@
   - Created Date
   - Last Updated Date
   - "Is New" \(Created < 1 month ago\)
-  - Title
+  - Title (project name)
   - List of tags 
   - Is B2C
   - Is B2B
@@ -36,6 +36,275 @@
 > See [mockflow](https://wireframepro.mockflow.com/view/Mb225d76423dcc4835f48a8200db7993e1554322465834)
 
 ## Create / Compare API spec
+- REST api
+- GET's:
+  - `/projects/<query>`
+    - ret: list of project objects
+        ```json
+        [
+            {
+                "id": 1,
+                "project_name": "Proj1",
+                "owner": {
+                "id": "42",
+                "first": "Bob",
+                "last": "Smith",
+                "username": "bsmith",
+                "email": "bsmith@example.com"
+                },
+                "editors": [
+                {
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com"
+                },
+                {
+                    "id": "1",
+                    "first": "Jane",
+                    "last": "D'oh",
+                    "username": "jdoe",
+                    "email": "jdoe@example.com"
+                }
+                ],
+                "archived": false,
+                "created": "2018-03-16",
+                "last_updated": "2019-01-01",
+                "tags": [
+                "tag1",
+                "tag2",
+                "tag3"
+                ],
+                "b2b": true,
+                "b2c": false,
+                "is_new": false,
+                "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
+            },
+            {
+                "id": 3,
+                "project_name": "Proj3",
+                "owner": {
+                "id": "1",
+                "first": "Jane",
+                "last": "D'oh",
+                "username": "jdoe",
+                "email": "jdoe@example.com"
+                },
+                "editors": [
+                {
+                    "id": "1",
+                    "first": "Jane",
+                    "last": "D'oh",
+                    "username": "jdoe",
+                    "email": "jdoe@example.com"
+                }
+                ],
+                "archived": false,
+                "created": "2019-03-16",
+                "last_updated": "2019-04-01",
+                "tags": [
+                "tag1"
+                ],
+                "b2b": true,
+                "b2c": true,
+                "is_new": true,
+                "page_contents": "# header3\n\n> Quote3\n\nmisc markdown3"
+            }
+        ]
+           ```
+  - `/project/<id>`
+    - ret: project object
+        ```json
+            {
+                "id": 1,
+                "project_name": "Proj1",
+                "owner": {
+                "id": "42",
+                "first": "Bob",
+                "last": "Smith",
+                "username": "bsmith",
+                "email": "bsmith@example.com"
+                },
+                "editors": [
+                {
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com"
+                },
+                {
+                    "id": "1",
+                    "first": "Jane",
+                    "last": "D'oh",
+                    "username": "jdoe",
+                    "email": "jdoe@example.com"
+                }
+                ],
+                "archived": false,
+                "created": "2018-03-16",
+                "last_updated": "2019-01-01",
+                "tags": [
+                "tag1",
+                "tag2",
+                "tag3"
+                ],
+                "b2b": true,
+                "b2c": false,
+                "is_new": false,
+                "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
+            }
+        ```
+- POSTS's:
+  - `/project/new`
+    - req: new project object
+        ```json
+        {
+            "project_name": "Proj1",
+            "owner_id": 42,
+            "created": "2018-03-16",
+            "last_updated": "2019-01-01",
+            "tags": [
+            "tag1",
+            "tag2",
+            "tag3"
+            ],
+            "b2b": true,
+            "b2c": false,
+            "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
+        }
+        ```
+    - ret: project object
+        ```json
+            {
+                "id": 1,
+                "project_name": "Proj1",
+                "owner": {
+                "id": "42",
+                "first": "Bob",
+                "last": "Smith",
+                "username": "bsmith",
+                "email": "bsmith@example.com"
+                },
+                "editors": [
+                {
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com"
+                },
+                {
+                    "id": "1",
+                    "first": "Jane",
+                    "last": "D'oh",
+                    "username": "jdoe",
+                    "email": "jdoe@example.com"
+                }
+                ],
+                "archived": false,
+                "created": "2018-03-16",
+                "last_updated": "2019-01-01",
+                "tags": [
+                "tag1",
+                "tag2",
+                "tag3"
+                ],
+                "b2b": true,
+                "b2c": false,
+                "is_new": false,
+                "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
+            }
+        ```
+- PATCH's:
+  - `/project/update`
+    - req: updated project object
+        ```json
+            {
+                "id": 1,
+                "project_name": "Proj1",
+                "owner": {
+                "id": "42",
+                "first": "Bob",
+                "last": "Smith",
+                "username": "bsmith",
+                "email": "bsmith@example.com"
+                },
+                "editors": [
+                {
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com"
+                },
+                {
+                    "id": "1",
+                    "first": "Jane",
+                    "last": "D'oh",
+                    "username": "jdoe",
+                    "email": "jdoe@example.com"
+                }
+                ],
+                "archived": false,
+                "created": "2018-03-16",
+                "last_updated": "2019-01-01",
+                "tags": [
+                "tag1",
+                "tag2",
+                "tag3"
+                ],
+                "b2b": true,
+                "b2c": false,
+                "is_new": false,
+                "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
+            }
+        ```
+    - ret: project object
+        ```json
+            {
+                "id": 1,
+                "project_name": "Proj1",
+                "owner": {
+                "id": "42",
+                "first": "Bob",
+                "last": "Smith",
+                "username": "bsmith",
+                "email": "bsmith@example.com"
+                },
+                "editors": [
+                {
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com"
+                },
+                {
+                    "id": "1",
+                    "first": "Jane",
+                    "last": "D'oh",
+                    "username": "jdoe",
+                    "email": "jdoe@example.com"
+                }
+                ],
+                "archived": false,
+                "created": "2018-03-16",
+                "last_updated": "2019-01-01",
+                "tags": [
+                "tag1",
+                "tag2",
+                "tag3"
+                ],
+                "b2b": true,
+                "b2c": false,
+                "is_new": false,
+                "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
+            }
+        ```
+- DELETE's:
+  - None
 
 ## Code Notes
 - Should be in JS/HTML/etc
