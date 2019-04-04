@@ -156,6 +156,23 @@
                 "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
             }
         ```
+  - `/user/id`
+    - ret: user object
+        ```json
+         {
+            "id": "42",
+            "first": "Bob",
+            "last": "Smith",
+            "username": "bsmith",
+            "email": "bsmith@example.com",
+            "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
+            "projects": 
+            [
+                "project_id": 1,
+                "project_id": 3
+            ]
+        }
+        ```
 - POSTS's:
   - `/project/new`
     - req: new project object
@@ -216,6 +233,33 @@
                 "is_new": false,
                 "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
             }
+        ```
+  - `/user/new`
+    - req: new user info
+        ```json
+        {
+            "first": "Bob",
+            "last": "Smith",
+            "username": "bsmith",
+            "email": "bsmith@example.com",
+            "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4"
+        }
+        ```
+    - ret: user object
+        ```json
+         {
+            "id": "42",
+            "first": "Bob",
+            "last": "Smith",
+            "username": "bsmith",
+            "email": "bsmith@example.com",
+            "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
+            "projects": 
+            [
+                "project_id": 1,
+                "project_id": 3
+            ]
+        }
         ```
 - PATCH's:
   - `/project/update`
@@ -302,6 +346,38 @@
                 "is_new": false,
                 "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
             }
+        ```
+  - `/user/update`
+    - req: updated user info
+        ```json
+        {
+            "first": "Bob",
+            "last": "Smith",
+            "username": "bsmith",
+            "email": "bsmith@example.com",
+            "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
+            "projects": 
+            [
+                "project_id": 1,
+                "project_id": 3
+            ]
+        }
+        ```
+    - ret: user object
+        ```json
+         {
+            "id": "42",
+            "first": "Bob",
+            "last": "Smith",
+            "username": "bsmith",
+            "email": "bsmith@example.com",
+            "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
+            "projects": 
+            [
+                "project_id": 1,
+                "project_id": 3
+            ]
+        }
         ```
 - DELETE's:
   - None
