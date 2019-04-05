@@ -50,7 +50,8 @@ See `../wireframes/GaleriSite.xcf`
                 "first": "Bob",
                 "last": "Smith",
                 "username": "bsmith",
-                "email": "bsmith@example.com"
+                "email": "bsmith@example.com",
+                 "href": "/users/42"
                 },
                 "editors": [
                 {
@@ -58,14 +59,16 @@ See `../wireframes/GaleriSite.xcf`
                     "first": "Bob",
                     "last": "Smith",
                     "username": "bsmith",
-                    "email": "bsmith@example.com"
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 {
                     "id": "1",
                     "first": "Jane",
                     "last": "D'oh",
                     "username": "jdoe",
-                    "email": "jdoe@example.com"
+                    "email": "jdoe@example.com",
+                    "href": "/users/1"
                 }
                 ],
                 "archived": false,
@@ -89,7 +92,8 @@ See `../wireframes/GaleriSite.xcf`
                 "first": "Jane",
                 "last": "D'oh",
                 "username": "jdoe",
-                "email": "jdoe@example.com"
+                "email": "jdoe@example.com",
+                 "href": "/users/1"
                 },
                 "editors": [
                 {
@@ -97,7 +101,8 @@ See `../wireframes/GaleriSite.xcf`
                     "first": "Jane",
                     "last": "D'oh",
                     "username": "jdoe",
-                    "email": "jdoe@example.com"
+                    "email": "jdoe@example.com",
+                    "href": "/users/1"
                 }
                 ],
                 "archived": false,
@@ -113,18 +118,19 @@ See `../wireframes/GaleriSite.xcf`
             }
         ]
            ```
-  - `/project/<id>`
+  - `/projects/<id>`
     - ret: project object
         ```json
             {
                 "id": 1,
                 "project_name": "Proj1",
                 "owner": {
-                "id": "42",
-                "first": "Bob",
-                "last": "Smith",
-                "username": "bsmith",
-                "email": "bsmith@example.com"
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 "editors": [
                 {
@@ -132,14 +138,16 @@ See `../wireframes/GaleriSite.xcf`
                     "first": "Bob",
                     "last": "Smith",
                     "username": "bsmith",
-                    "email": "bsmith@example.com"
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 {
                     "id": "1",
                     "first": "Jane",
                     "last": "D'oh",
                     "username": "jdoe",
-                    "email": "jdoe@example.com"
+                    "email": "jdoe@example.com",
+                    "href": "/users/1"
                 }
                 ],
                 "archived": false,
@@ -156,7 +164,7 @@ See `../wireframes/GaleriSite.xcf`
                 "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
             }
         ```
-  - `/user/id`
+  - `/users/id`
     - ret: user object
         ```json
          {
@@ -168,13 +176,21 @@ See `../wireframes/GaleriSite.xcf`
             "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
             "projects": 
             [
-                "project_id": 1,
-                "project_id": 3
+                {
+                    "id": 1,
+                    "project_name": "Proj1",
+                    "href": "/projects/1"
+                },
+                {
+                    "id": 3,
+                    "project_name": "Proj3",
+                    "href": "/projects/3"
+                }
             ]
         }
         ```
 - POSTS's:
-  - `/project/new`
+  - `/projects`
     - req: new project object
         ```json
         {
@@ -182,6 +198,32 @@ See `../wireframes/GaleriSite.xcf`
             "owner_id": 42,
             "created": "2018-03-16",
             "last_updated": "2019-01-01",
+            "owner": {
+                "id": "42",
+                "first": "Bob",
+                "last": "Smith",
+                "username": "bsmith",
+                "email": "bsmith@example.com",
+                "href": "/users/42"
+            },
+            "editors": [
+                {
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
+                },
+                {
+                    "id": "1",
+                    "first": "Jane",
+                    "last": "D'oh",
+                    "username": "jdoe",
+                    "email": "jdoe@example.com",
+                    "href": "/users/1"
+                }
+            ],
             "tags": [
             "tag1",
             "tag2",
@@ -198,11 +240,12 @@ See `../wireframes/GaleriSite.xcf`
                 "id": 1,
                 "project_name": "Proj1",
                 "owner": {
-                "id": "42",
-                "first": "Bob",
-                "last": "Smith",
-                "username": "bsmith",
-                "email": "bsmith@example.com"
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 "editors": [
                 {
@@ -210,14 +253,16 @@ See `../wireframes/GaleriSite.xcf`
                     "first": "Bob",
                     "last": "Smith",
                     "username": "bsmith",
-                    "email": "bsmith@example.com"
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 {
                     "id": "1",
                     "first": "Jane",
                     "last": "D'oh",
                     "username": "jdoe",
-                    "email": "jdoe@example.com"
+                    "email": "jdoe@example.com",
+                    "href": "/users/1"
                 }
                 ],
                 "archived": false,
@@ -234,7 +279,7 @@ See `../wireframes/GaleriSite.xcf`
                 "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
             }
         ```
-  - `/user/new`
+  - `/users`
     - req: new user info
         ```json
         {
@@ -256,24 +301,33 @@ See `../wireframes/GaleriSite.xcf`
             "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
             "projects": 
             [
-                "project_id": 1,
-                "project_id": 3
+                {
+                    "id": 1,
+                    "project_name": "Proj1",
+                    "href": "/projects/1"
+                },
+                {
+                    "id": 3,
+                    "project_name": "Proj3",
+                    "href": "/projects/3"
+                }
             ]
         }
         ```
 - PATCH's:
-  - `/project/update`
+  - `/projects/<id>`
     - req: updated project object
         ```json
             {
                 "id": 1,
                 "project_name": "Proj1",
                 "owner": {
-                "id": "42",
-                "first": "Bob",
-                "last": "Smith",
-                "username": "bsmith",
-                "email": "bsmith@example.com"
+                    "id": "42",
+                    "first": "Bob",
+                    "last": "Smith",
+                    "username": "bsmith",
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 "editors": [
                 {
@@ -281,14 +335,16 @@ See `../wireframes/GaleriSite.xcf`
                     "first": "Bob",
                     "last": "Smith",
                     "username": "bsmith",
-                    "email": "bsmith@example.com"
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 {
                     "id": "1",
                     "first": "Jane",
                     "last": "D'oh",
                     "username": "jdoe",
-                    "email": "jdoe@example.com"
+                    "email": "jdoe@example.com",
+                    "href": "/users/1"
                 }
                 ],
                 "archived": false,
@@ -315,7 +371,8 @@ See `../wireframes/GaleriSite.xcf`
                 "first": "Bob",
                 "last": "Smith",
                 "username": "bsmith",
-                "email": "bsmith@example.com"
+                "email": "bsmith@example.com",
+                "href": "/users/42"
                 },
                 "editors": [
                 {
@@ -323,14 +380,16 @@ See `../wireframes/GaleriSite.xcf`
                     "first": "Bob",
                     "last": "Smith",
                     "username": "bsmith",
-                    "email": "bsmith@example.com"
+                    "email": "bsmith@example.com",
+                    "href": "/users/42"
                 },
                 {
                     "id": "1",
                     "first": "Jane",
                     "last": "D'oh",
                     "username": "jdoe",
-                    "email": "jdoe@example.com"
+                    "email": "jdoe@example.com",
+                    "href": "/users/1"
                 }
                 ],
                 "archived": false,
@@ -347,7 +406,7 @@ See `../wireframes/GaleriSite.xcf`
                 "page_contents": "# header1\n\n> Quote1\n\nmisc markdown1"
             }
         ```
-  - `/user/update`
+  - `/users/<id>`
     - req: updated user info
         ```json
         {
@@ -358,8 +417,16 @@ See `../wireframes/GaleriSite.xcf`
             "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
             "projects": 
             [
-                "project_id": 1,
-                "project_id": 3
+                {
+                    "id": 1,
+                    "project_name": "Proj1",
+                    "href": "/projects/1"
+                },
+                {
+                    "id": 3,
+                    "project_name": "Proj3",
+                    "href": "/projects/3"
+                }
             ]
         }
         ```
@@ -374,8 +441,16 @@ See `../wireframes/GaleriSite.xcf`
             "passwd_hash": "dfsfdsf4h23jk4h2j4h23kjh4",
             "projects": 
             [
-                "project_id": 1,
-                "project_id": 3
+                {
+                    "id": 1,
+                    "project_name": "Proj1",
+                    "href": "/projects/1"
+                },
+                {
+                    "id": 3,
+                    "project_name": "Proj3",
+                    "href": "/projects/3"
+                }
             ]
         }
         ```
