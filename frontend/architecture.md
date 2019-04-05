@@ -29,8 +29,9 @@
   - Owner name
   - Who can modify list
   - Markdown contents of the page
-    - Images will be hosted in site page directory
+    - Images can be hosted in site page directory
       - e.g. `/proj-1/img/foo.jpg`
+    - Or images could be hosted elsewhere, maybe POST the image and return the URL for it?
 
 ## Wireframes:
 See `../wireframes/GaleriSite.xcf`
@@ -38,7 +39,7 @@ See `../wireframes/GaleriSite.xcf`
 ## Create / Compare API spec
 - REST api
 - GET's:
-  - `/projects/<query>`
+  - `/projects?q=<query>`
     - ret: list of project objects
         ```json
         [
