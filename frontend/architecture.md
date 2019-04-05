@@ -33,7 +33,7 @@
       - e.g. `/proj-1/img/foo.jpg`
 
 ## Wireframes:
-> See [mockflow](https://wireframepro.mockflow.com/view/Mb225d76423dcc4835f48a8200db7993e1554322465834)
+See `../wireframes/GaleriSite.xcf`
 
 ## Create / Compare API spec
 - REST api
