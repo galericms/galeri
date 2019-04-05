@@ -22,6 +22,7 @@ The system has to be usable such that non-technical people will have no diffulti
 - [ ] As a user, I want to modify a page as easy as I can write an email so that I don't have to waste time on technical difficulties.
 - [ ] As a user, I want to view all projects without logging in so that I don't have to log in.
 - [ ] As a user, I want to search by tags or topics so that I can filter.
+- [ ] As an administrator, I want to customize the look and feel of the site so that we can have company branding.
 
 ## Non-Functional Requirements
 
