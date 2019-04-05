@@ -3,12 +3,17 @@
 > For architecture, see `architecture.md`
 
 ## Install
-- `$ apt install nodejs npm`
-- `$ npm i`
+```console
+apt install nodejs npm
+npm install
+```
 
 ## Dev
-- `$ make dev`
+```console
+npm run start
+```
 
 ## Build
-- `$ make build`
-
+```console
+npm run build
+```

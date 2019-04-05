@@ -1,0 +1,54 @@
+// Colors
+$primaryColor: #41afff;
+$secondaryColor: #2587ce;
+$tertiaryColor: #808080;
+$lightTxtColor: #efefef;
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// navbar
+nav {
+    font-weight: bold;
+    color: $lightTxtColor;
+    button {
+        background-color: $secondaryColor;
+        border: none;
+        color: $lightTxtColor;
+    }
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-color: $primaryColor;
+    list-style-type: none;
+}
+li {
+    display: inline-block;
+    padding: 10px;
+    a {
+        font-size: 1.1em;
+        padding: 5px;
+        color: $lightTxtColor;
+        text-decoration: none;
+    }
+    form {
+        font-size: 0.8em;
+    }
+}
+.headerRight {
+    float: right;
+    padding: 10px 2px;
+}
+
+.primaryBtn {
+    background-color: $secondaryColor;
+    font-size: 1em;
+}
+.secondaryBtn {
+    font-size: 0.9em;
+    margin-right: 8px;
+}
