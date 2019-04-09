@@ -2,6 +2,14 @@
 
 > For architecture, see `architecture.md`
 
+## TODO
+- Pick a UI framework
+  - [ ] Grommet
+  - [ ] Ant.Design?
+  - [ ] Material
+- [ ] Learn the UI framework
+- 
+
 ## Install
 ```console
 apt install nodejs npm
