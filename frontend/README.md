@@ -4,11 +4,12 @@
 
 ## TODO
 - Pick a UI framework
-  - [ ] Grommet
-  - [ ] Ant.Design?
-  - [ ] Material
+  - ~~[ ] Grommet~~
+  - [x] Ant.Design?
+  - ~~[ ] Material-UI~~
 - [ ] Learn the UI framework
-- 
+- [ ] Restructure current components to fit UI framework
+- [ ] Come up with Logo / color scheme
 
 ## Install
 ```console
