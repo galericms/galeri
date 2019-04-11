@@ -8,7 +8,7 @@ const Home = props => (
         </div>
         <div style={{float:'right'}}>Details | Card</div>
         <div style={{clear: 'both'}}/>
-        <CardView cardData={props.sampleData} />
+        <CardView cardData={props.cardData} />
     </div>
 );
 
