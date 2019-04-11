@@ -5,11 +5,13 @@ const CardView = props => {
     // console.log(props)
     const cards = props.cardData.map(cardItem => {
         return (
-            <Col span={10} key={cardItem.id}>
+            <Col xs={24} md={12} lg={8} key={cardItem.id} style={{marginBottom:"16px"}}>
                 <Card
                     key={cardItem.id}
                     title={cardItem.title}
                     extra={cardItem.author}
+                    hoverable={true}
+                    onClick={() => window.alert(`${cardItem.id} has been clicked`)}
                 >
                     {cardItem.summary}
                 </Card>
@@ -19,7 +21,8 @@ const CardView = props => {
 
     return (
         <div>
-            <Row type='flex' justify="center">
+            {/* <Row type='flex' justify="space-around" > */}
+            <Row gutter={16}>
                 {cards}
             </Row>
 

@@ -43,6 +43,27 @@ class App extends Component {
                     summary:
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                     author: "Barb Johnson"
+                },
+                {
+                    id: 3,
+                    title: "Project 3",
+                    summary:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    author: "Barb Johnson"
+                },
+                {
+                    id: 4,
+                    title: "Project 4",
+                    summary:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    author: "Barb Johnson"
+                },
+                {
+                    id: 5,
+                    title: "Project 5",
+                    summary:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    author: "Barb Johnson"
                 }
             ]
         };
