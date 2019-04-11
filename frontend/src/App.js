@@ -19,7 +19,7 @@ const About = () => (
 
 const FooterComp = () => (
     <Footer>
-        <div style={{textAlign: 'center'}}>Footer, etc</div>
+        <div style={{ textAlign: "center" }}>Footer, etc</div>
     </Footer>
 );
 
@@ -28,7 +28,23 @@ class App extends Component {
         super(props);
 
         this.state = {
-            title: "Galeri"
+            title: "Galeri",
+            sampleData: [
+                {
+                    id: 1,
+                    title: "Project 1",
+                    summary:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    author: "Tom Smith"
+                },
+                {
+                    id: 2,
+                    title: "Project 2",
+                    summary:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    author: "Barb Johnson"
+                }
+            ]
         };
     }
 
@@ -40,7 +56,10 @@ class App extends Component {
         return (
             <Router>
                 <Layout>
-                    <HeaderComp searchFunc={q => this.doSearch(q)} />
+                    <HeaderComp
+                        title={this.state.title}
+                        searchFunc={q => this.doSearch(q)}
+                    />
                     <Content style={{ padding: "0px 50px" }}>
                         <div
                             style={{
@@ -49,7 +68,14 @@ class App extends Component {
                                 minHeight: 300
                             }}
                         >
-                            <Route path='/' exact component={Home} />
+                            <Route
+                                path='/'
+                                exact
+                                // component={Home}
+                                render={props => (
+                                    <Home cardData={this.state.sampleData} />
+                                )}
+                            />
                             <Route path='/about' component={About} />
                             <Route path='/signup' component={SignUp} />
                             <Route path='/login' component={Login} />

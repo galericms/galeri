@@ -15,11 +15,14 @@ const HeaderComp = props => (
             <Menu.Item key='home'>
                 <Link to='/'>
                     <img
-                        height='64'
-                        width='64'
+                        height='48'
+                        width='48'
                         alt='logo'
                         src='https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-512.png'
                     />
+                    <span style={{ fontWeight: "bold", fontSize: "1.25em" }}>
+                        {props.title}
+                    </span>
                 </Link>
             </Menu.Item>
             <Menu.Item key='about'>
