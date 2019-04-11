@@ -18,6 +18,12 @@
     - [ ] Project View
     - [ ] User Profile
     - [ ] ...
+- [ ] Make responsive
+  - [ ] Header
+  - [ ] Home
+  - [ ] Footer
+  - [ ] User Profile
+  - [ ] Project
 - [ ] Come up with Logo / color scheme
 
 ## Install
