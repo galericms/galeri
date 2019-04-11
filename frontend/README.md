@@ -7,8 +7,17 @@
   - ~~[ ] Grommet~~
   - [x] Ant.Design?
   - ~~[ ] Material-UI~~
-- [ ] Learn the UI framework
-- [ ] Restructure current components to fit UI framework
+- [x] Learn the UI framework
+- [x] Restructure current components to fit UI framework
+  - [ ] Create needed routes/pages/components
+    - [x] Home
+    - [x] About
+    - [ ] SignUp
+    - [ ] Login
+    - [ ] Project Create
+    - [ ] Project View
+    - [ ] User Profile
+    - [ ] ...
 - [ ] Come up with Logo / color scheme
 
 ## Install
