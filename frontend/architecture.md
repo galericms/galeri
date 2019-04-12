@@ -4,6 +4,7 @@
 
 ## TODO:
 - [x] Create technical architecture
+- [ ] React file structure convention
 - [x] Create wireframes
 - [ ] Create / Compare API spec
 - [ ] Do the codes
@@ -32,6 +33,26 @@
     - Images can be hosted in site page directory
       - e.g. `/proj-1/img/foo.jpg`
     - Or images could be hosted elsewhere, maybe POST the image and return the URL for it?
+
+## react file structure convention
+- index -> App
+  - Home
+    - index.js
+    - CardView.js
+    - IndexView.js
+  - Project
+    - ViewProject.js
+    - ModifyProject.js
+  - User
+    - Login.js
+    - SignUp.js
+    - Profile.js
+  - Common
+    - HeaderBar.js
+    - FooterBar.js
+  - Static
+    - About.js
+    - Contact.js
 
 ## Wireframes:
 See `../wireframes/GaleriSite.xcf`

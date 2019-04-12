@@ -9,8 +9,11 @@
   - ~~[ ] Material-UI~~
 - [x] Learn the UI framework
 - [x] Restructure current components to fit UI framework
+  - [ ] Rename components & create convention
   - [ ] Create needed routes/pages/components
     - [x] Home
+    - [z] CardView
+    - [z] DetailView
     - [x] About
     - [ ] SignUp
     - [ ] Login
