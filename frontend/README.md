@@ -9,7 +9,7 @@
   - ~~[ ] Material-UI~~
 - [x] Learn the UI framework
 - [x] Restructure current components to fit UI framework
-  - [ ] Rename components & create convention
+  - [x] Rename components & create convention
   - [ ] Create needed routes/pages/components
     - [x] Home
     - [z] CardView
@@ -23,7 +23,7 @@
     - [ ] ...
 - [ ] Make responsive
   - [ ] Header
-  - [ ] Home
+  - [x] Home
   - [ ] Footer
   - [ ] User Profile
   - [ ] Project

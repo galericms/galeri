@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu, Input } from "antd";
-const { Header } = Layout;
+const { Header: AntHdr } = Layout;
 
-const HeaderComp = props => (
-    <Header>
+const Header = props => (
+    <AntHdr>
         <Menu
             theme='dark'
             mode='horizontal'
@@ -43,7 +43,7 @@ const HeaderComp = props => (
                 <Link to='/signup'>SignUp</Link>
             </Menu.Item>
         </Menu>
-    </Header>
+    </AntHdr>
 );
 
-export default HeaderComp;
+export default Header;

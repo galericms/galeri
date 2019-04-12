@@ -35,14 +35,14 @@
     - Or images could be hosted elsewhere, maybe POST the image and return the URL for it?
 
 ## react file structure convention
-- index -> App
+- index
   - Home
     - index.js
     - CardView.js
-    - IndexView.js
+    - DetailView.js
   - Project
-    - ViewProject.js
-    - ModifyProject.js
+    - View.js
+    - Modify.js
   - User
     - Login.js
     - SignUp.js
