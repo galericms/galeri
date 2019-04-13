@@ -7,6 +7,7 @@ import "./index.scss";
 
 import Home from "./components/home";
 import About from "./components/static/About";
+import Contact from "./components/static/Contact";
 import Header from "./components/common/HeaderBar";
 import Footer from "./components/common/FooterBar";
 import SignUp from "./components/user/SignUp";
@@ -89,6 +90,7 @@ class App extends Component {
                                 )}
                             />
                             <Route path='/about' component={About} />
+                            <Route path='/contact' component={Contact} />
                             <Route path='/signup' component={SignUp} />
                             <Route path='/login' component={Login} />
                         </div>

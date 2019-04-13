@@ -26,9 +26,9 @@ const Header = props => (
                     </span>
                 </Link>
             </Menu.Item>
-            <Menu.Item key='about'>
+            {/* <Menu.Item key='about'>
                 <Link to='/about'>About</Link>
-            </Menu.Item>
+            </Menu.Item> */}
 
             <Menu.Item key='search'>
                 <Input.Search
