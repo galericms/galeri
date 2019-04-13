@@ -18,7 +18,8 @@ const Header = props => (
                         height='48'
                         width='48'
                         alt='logo'
-                        src='https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-512.png'
+                        src={require("../../assets/GaleriLogo.png")}
+                        style={{ backgroundColor: "#ffffff", borderRadius: "10px", margin: "5px" }}
                     />
                     <span style={{ fontWeight: "bold", fontSize: "1.25em" }}>
                         {props.title}

@@ -84,7 +84,6 @@ class App extends Component {
                             <Route
                                 path='/'
                                 exact
-                                // component={Home}
                                 render={props => (
                                     <Home cardData={this.state.sampleData} />
                                 )}
