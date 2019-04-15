@@ -9,11 +9,9 @@ class SignUp extends React.Component {
             first: "",
             last: "",
             email: "",
-            userName: "",
-            passwd: ""
+            user: "",
+            password: ""
         };
-        // validate the password... See https://github.com/mmw/react-password-strength
-        // Hashing the password should happen backend, to prevent pass the hash attack
     }
 
     handleSubmit = e => {
@@ -21,6 +19,7 @@ class SignUp extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log("Received values of form: ", values);
+                //do signup
             }
         });
     };
@@ -56,7 +55,7 @@ class SignUp extends React.Component {
                     </Form.Item>
 
                     <Form.Item label='User Name'>
-                        {getFieldDecorator("userName", {
+                        {getFieldDecorator("user", {
                             rules: [{ required: true, message: "UserName!" }]
                         })(
                             <Input
@@ -78,7 +77,7 @@ class SignUp extends React.Component {
                     </Form.Item>
 
                     <Form.Item label='Password'>
-                        {getFieldDecorator("passwd", {
+                        {getFieldDecorator("password", {
                             rules: [{ required: true, message: "password!!!" }]
                         })(
                             <Input.Password
@@ -89,34 +88,9 @@ class SignUp extends React.Component {
                         )}
                     </Form.Item>
 
-                    {/* Submit */}
                     <Button type='primary' htmlType='submit'>
                         Sign Up
                     </Button>
-
-                    {/* <Form.Item>
-                        <Input id='first' placeholder='First Name' />
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Input id='last' placeholder='Last Name' />
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Input id='email' placeholder='Email Address' />
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Input id='userName' placeholder='User Name' />
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Input.Password
-                            id='passwd'
-                            placeholder='Enter a password'
-                            visibilityToggle={true}
-                        />
-                    </Form.Item> */}
                 </Form>
             </div>
         );
