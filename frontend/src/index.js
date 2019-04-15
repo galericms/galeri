@@ -1,10 +1,8 @@
 import ReactDOM from "react-dom";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "normalize.css";
 import "antd/dist/antd.css";
 import "./index.scss";
-
 import Home from "./components/home";
 import About from "./components/static/About";
 import Contact from "./components/static/Contact";
@@ -86,7 +84,7 @@ class App extends Component {
                                 path='/'
                                 exact
                                 render={props => (
-                                    <Home cardData={this.state.sampleData} />
+                                    <Home projects={this.state.sampleData} />
                                 )}
                             />
                             <Route path='/about' component={About} />

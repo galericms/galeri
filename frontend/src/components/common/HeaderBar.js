@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu, Input } from "antd";
-const { Header: AntHdr } = Layout;
+const { Header: AntHeader } = Layout;
 
 const Header = props => (
-    <AntHdr>
+    <AntHeader>
         <Menu
             theme='dark'
             mode='horizontal'
@@ -26,9 +26,6 @@ const Header = props => (
                     </span>
                 </Link>
             </Menu.Item>
-            {/* <Menu.Item key='about'>
-                <Link to='/about'>About</Link>
-            </Menu.Item> */}
 
             <Menu.Item key='search'>
                 <Input.Search
@@ -44,7 +41,7 @@ const Header = props => (
                 <Link to='/signup'>SignUp</Link>
             </Menu.Item>
         </Menu>
-    </AntHdr>
+    </AntHeader>
 );
 
 export default Header;
