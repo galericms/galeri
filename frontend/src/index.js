@@ -10,6 +10,7 @@ import Header from "./components/common/HeaderBar";
 import Footer from "./components/common/FooterBar";
 import SignUp from "./components/user/SignUp";
 import Login from "./components/user/Login";
+import Profile from "./components/user/Profile";
 
 import { Layout } from "antd";
 const { Content } = Layout;
@@ -91,6 +92,7 @@ class App extends Component {
                             <Route path='/contact' component={Contact} />
                             <Route path='/signup' component={SignUp} />
                             <Route path='/login' component={Login} />
+                            <Route path='/profile/:id' component={Profile} />
                         </div>
                     </Content>
                     <Footer />
