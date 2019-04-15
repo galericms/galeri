@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Input, Icon, Button } from "antd";
 
 class SignUp extends React.Component {
@@ -88,7 +88,15 @@ class SignUp extends React.Component {
                         )}
                     </Form.Item>
 
-                    <Button type='primary' htmlType='submit'>
+                    <Button
+                        type='primary'
+                        htmlType='submit'
+                        style={{
+                            display: "block",
+                            margin: "auto",
+                            marginTop: "24px"
+                        }}
+                    >
                         Sign Up
                     </Button>
                 </Form>
@@ -98,5 +106,4 @@ class SignUp extends React.Component {
 }
 
 const SignUpForm = Form.create()(SignUp);
-
 export default SignUpForm;
