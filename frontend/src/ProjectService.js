@@ -43,6 +43,8 @@ const sampleData = [
 // functions
 export const getSampleProjects = () => {
     return new Promise((resolve, reject) => {
-        sampleData ? resolve(sampleData) : reject(new Error("Test Error"));
+        sampleData
+            ? resolve(sampleData)
+            : reject(new Error("Could not load project"));
     });
 };
