@@ -51,7 +51,7 @@ const Header = props => {
                 </Menu.Item>
 
                 <Menu.Item key='profile' style={{ float: "right" }}>
-                    <Link to={profileURL}>{userName ? userName : "Profile"}</Link>
+                    <Link to={profileURL}>{userName}</Link>
                 </Menu.Item>
 
                 <Menu.Item key='login' style={{ float: "right" }}>
