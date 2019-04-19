@@ -11,6 +11,14 @@ import Import
 getProjectR :: Handler Value
 getProjectR = do
     projects <- runDB $ selectList [] [] :: Handler [Entity Project]
+    renderUrl <- getUrlRender
+    projects <- return $ fmap (\(Entity projectId project) ->
+                                    object [ "id" .= projectId
+                                           , "title" .= projectTitle project
+                                           , "summary" .= projectSummary project
+                                           , "url" .= renderUrl ProjectR
+                                           ])
+                              projects
     sendStatusJSON ok200 $ projects
 
 postProjectR :: Handler Value
