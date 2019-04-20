@@ -23,7 +23,8 @@ GET https://api.galeri.com/projects
             "id": 1,
             "name": "Sebastian Safari",
             "bio": "System administrator at PARC.",
-            "email": "ssafari@parc.com"
+            "email": "ssebs@ssebs.com",
+            "username": "ssebs"
         },
         "summary": "Raising awareness of existing projects within an organization.",
         "collaborators": [
@@ -32,7 +33,8 @@ GET https://api.galeri.com/projects
                 "id": 2,
                 "name": "Aaron Ang",
                 "bio": "Software engineer at PARC.",
-                "email": "awz.ang@gmail.com"
+                "email": "awz.ang@gmail.com",
+                "username": "aaronang"
             }
         ]
     }
@@ -57,7 +59,8 @@ GET https://api.galeri.com/projects/:id
         "id": 1,
         "name": "Sebastian Safari",
         "bio": "System administrator at PARC.",
-        "email": "ssafari@parc.com"
+        "email": "ssebs@ssebs.com",
+        "username": "ssebs"
     },
     "summary": "Raising awareness of existing projects within an organization.",
     "collaborators": [
@@ -66,7 +69,8 @@ GET https://api.galeri.com/projects/:id
             "id": 2,
             "name": "Aaron Ang",
             "bio": "Software engineer at PARC.",
-            "email": "awz.ang@gmail.com"
+            "email": "awz.ang@gmail.com",
+            "username": "aaronang"
         }
     ],
     "body": "# Galeri\n\nRaising awareness of existing projects within an organization."
@@ -96,7 +100,7 @@ POST https://api.galeri.com/projects
     "summary": "Raising awareness of existing projects within an organization.",
     "body": "# Galeri\n\nRaising awareness of existing projects within an organization.",
     "collaborators": [
-        "awz.ang@gmail.com"
+        "aaronang"
     ]
 }
 ```
@@ -113,7 +117,8 @@ POST https://api.galeri.com/projects
         "id": 1,
         "name": "Sebastian Safari",
         "bio": "System administrator at PARC.",
-        "email": "ssafari@parc.com"
+        "email": "ssebs@ssebs.com",
+        "username": "ssebs"
     },
     "summary": "Raising awareness of existing projects within an organization.",
     "collaborators": [
@@ -122,7 +127,8 @@ POST https://api.galeri.com/projects
             "id": 2,
             "name": "Aaron Ang",
             "bio": "Software engineer at PARC.",
-            "email": "awz.ang@gmail.com"
+            "email": "awz.ang@gmail.com",
+            "username": "aaronang"
         }
     ],
     "body": "# Galeri\n\nRaising awareness of existing projects within an organization."
