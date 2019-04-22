@@ -75,7 +75,7 @@ class App extends Component {
                             <Route path='/profile/:id' component={Profile} />
                             {/* Project */}
                             <Route
-                                path='/project/:id'
+                                path='/projects/:id'
                                 component={ProjectView}
                             />
                         </div>
