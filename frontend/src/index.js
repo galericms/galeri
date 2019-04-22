@@ -12,6 +12,7 @@ import Footer from "./components/common/FooterBar";
 import SignUp from "./components/user/SignUp";
 import Login from "./components/user/Login";
 import Profile from "./components/user/Profile";
+import ProjectView from "./components/project/View";
 
 import { getSampleProjects } from "./ProjectService";
 
@@ -57,6 +58,7 @@ class App extends Component {
                                 minHeight: 300
                             }}
                         >
+                            {/* Home */}
                             <Route
                                 path='/'
                                 exact
@@ -64,11 +66,18 @@ class App extends Component {
                                     <Home projects={this.state.projects} />
                                 )}
                             />
+                            {/* Misc */}
                             <Route path='/about' component={About} />
                             <Route path='/contact' component={Contact} />
+                            {/* User */}
                             <Route path='/signup' component={SignUp} />
                             <Route path='/login' component={Login} />
                             <Route path='/profile/:id' component={Profile} />
+                            {/* Project */}
+                            <Route
+                                path='/project/:id'
+                                component={ProjectView}
+                            />
                         </div>
                     </Content>
                     <Footer />
