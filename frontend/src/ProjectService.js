@@ -8,35 +8,35 @@ const sampleProjects = [
         title: "My Project1",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        author: "Tom Smith"
+        creator: "Tom Smith"
     },
     {
         id: 2,
         title: "My Project2",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        author: "Barb Johnson"
+        creator: "Barb Johnson"
     },
     {
         id: 3,
         title: "My Project3",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        author: "Barb Johnson"
+        creator: "Barb Johnson"
     },
     {
         id: 4,
         title: "My Project4",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        author: "Barb Johnson"
+        creator: "Barb Johnson"
     },
     {
         id: 5,
         title: "My Project5",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        author: "Barb Johnson"
+        creator: "Barb Johnson"
     }
 ];
 
@@ -45,7 +45,7 @@ const sampleProject = {
     title: "My Project",
     summary:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    author: "BarbJohnson@example.com",
+    creator: "BarbJohnson@example.com",
     content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
 };
 
