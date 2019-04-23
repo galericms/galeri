@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { markdown } from "markdown";
 import { getSampleProject } from "../../ProjectService";
 
+// TODO: If one of the collaborators is logged in user,
+//   add "Edit" button 
 const ProjectView = ({ match }) => {
     const [currentProject, setCurrentProject] = useState({});
     const [errMsg, setErrMsg] = useState();
