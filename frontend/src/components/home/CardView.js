@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from 'react-router';
 import { Card, Row, Col } from "antd";
 
 const CardView = props => {
@@ -19,7 +20,7 @@ const CardView = props => {
                     extra={project.author}
                     hoverable={true}
                     onClick={() =>
-                        window.alert(`${project.id} has been clicked`)
+                        props.history.push(`/projects/${project.id}`)
                     }
                 >
                     {project.summary}
@@ -34,4 +35,4 @@ const CardView = props => {
         </div>
     );
 };
-export default CardView;
+export default withRouter(CardView);

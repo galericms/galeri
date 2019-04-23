@@ -1,8 +1,9 @@
 import React from "react";
+import { withRouter } from "react-router";
 import { Card, Row, Col } from "antd";
 
 const DetailView = props => {
-    const cards = props.cardData.map(cardItem => {
+    const cards = props.projects.map(project => {
         return (
             <Col
                 xs={24}
@@ -10,19 +11,19 @@ const DetailView = props => {
                 md={24}
                 lg={24}
                 xl={24}
-                key={cardItem.id}
+                key={project.id}
                 style={{ marginBottom: "16px" }}
             >
                 <Card
-                    key={cardItem.id}
-                    title={cardItem.title}
-                    extra={cardItem.author}
+                    key={project.id}
+                    title={project.title}
+                    extra={project.author}
                     hoverable={true}
                     onClick={() =>
-                        window.alert(`${cardItem.id} has been clicked`)
+                        props.history.push(`/projects/${project.id}`)
                     }
                 >
-                    {cardItem.summary}
+                    {project.summary}
                 </Card>
             </Col>
         );
@@ -34,4 +35,4 @@ const DetailView = props => {
         </div>
     );
 };
-export default DetailView;
+export default withRouter(DetailView);
