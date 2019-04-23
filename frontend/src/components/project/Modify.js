@@ -21,6 +21,9 @@ const CreateProject = props => {
     const editorRef = React.createRef();
     const { getFieldDecorator } = props.form;
 
+
+    // TODO: Use Project Service, and send an obj
+    // TODO: Load existing project
     const handleSubmit = e => {
         e.preventDefault();
 
