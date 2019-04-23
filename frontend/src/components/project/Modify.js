@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "antd";
+import React, { useState } from "react";
+import { Form, Input, Button, Mention } from "antd";
 import { getSampleProject } from "../../ProjectService";
 
 import "codemirror/lib/codemirror.css";
@@ -7,78 +7,99 @@ import "tui-editor/dist/tui-editor.min.css";
 import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
-const ProjectModify = ({ match }) => {
-    const [currentProject, setCurrentProject] = useState({});
+const CreateProject = props => {
+    const [tags, setTags] = useState([
+        "software",
+        "hardware",
+        "math",
+        "science",
+        "laser"
+    ]);
 
     const editorRef = React.createRef();
+    const { getFieldDecorator } = props.form;
 
-    useEffect(() => {
-        getSampleProject(match.params.id).then(
-            response => {
-                setCurrentProject(response);
-            },
-            err => console.error(err.message)
-        );
-    }, []);
-
-    const uploadImage = blob => {
-        const apiKey = "aa96c09a0250bdd61aee2b59ba7d5278";
-        const url = `https://api.imgbb.com/1/upload?key=${apiKey}`;
-        console.log(blob);
-        fetch(url, { method: "post", body: blob })
-            .then(res => res.json())
-            .then(res => console.log(res));
-    };
-
-    const submitNew = () => {
+    const handleSubmit = e => {
+        e.preventDefault();
         const content = editorRef.current.getInstance().getValue();
-        console.log(content)
-        console.log(currentProject);
+        console.log(content);
+        props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log("Received values of form: ", values);
+                //do create projct
+            }
+        });
     };
 
-    const ifNew = (
+    return (
         <div>
             <h1>Create a project</h1>
-            <Editor
-                usageStatistics={false}
-                initialValue="> I'm a sample project!"
-                previewStyle='vertical'
-                height='auto'
-                minHeight='400px'
-                initialEditType='wysiwyg'
-                ref={editorRef}
-                useCommandShortcut={true}
-                exts={[
-                    {
-                        name: "chart",
-                        minWidth: 100,
-                        maxWidth: 600,
-                        minHeight: 100,
-                        maxHeight: 300
-                    },
-                    "scrollSync",
-                    "colorSyntax",
-                    "uml",
-                    "mark",
-                    "table"
-                ]}
-                // hooks={
-                //     (addImageBlobHook = (blob, callback) => {
-                //         const uploadedImageURL = uploadImage(blob);
-                //         callback(uploadedImageURL, "alt text");
-                //         return false;
-                //     })
-                // }
-            />
-            <br />
-            <Button type='primary' onClick={() => submitNew()}>
-                Create
-            </Button>
+            <Form onSubmit={handleSubmit} layout='inline'>
+                <Form.Item label='Project Title'>
+                    {getFieldDecorator("title", {
+                        rules: [{ required: true, message: "Enter a title!" }]
+                    })(<Input placeholder='Title' />)}
+                </Form.Item>
+
+                <Form.Item label='Summary'>
+                    {getFieldDecorator("summary", {
+                        rules: [
+                            {
+                                required: true,
+                                message: "Enter a project sumary!"
+                            }
+                        ]
+                    })(
+                        <Input.TextArea placeholder='Enter a one or two sentence summary for your project' />
+                    )}
+                </Form.Item>
+
+                <Form.Item label='Tags'>
+                    <Mention
+                        placeholder='@tag'
+                        suggestions={tags}
+                        style={{ width: "100%", minWidth: "128px" }}
+                    />
+                </Form.Item>
+                {/* <Form.Item label='Collaborators' /> */}
+
+                <br />
+                <hr />
+                <br />
+                <Editor
+                    usageStatistics={false}
+                    initialValue="> I'm a sample project!"
+                    previewStyle='vertical'
+                    height='auto'
+                    minHeight='400px'
+                    initialEditType='wysiwyg'
+                    ref={editorRef}
+                    useCommandShortcut={true}
+                    exts={[
+                        {
+                            name: "chart",
+                            minWidth: 100,
+                            maxWidth: 600,
+                            minHeight: 100,
+                            maxHeight: 300
+                        },
+                        "scrollSync",
+                        "colorSyntax",
+                        "uml",
+                        "mark",
+                        "table"
+                    ]}
+                />
+                <br />
+                <Button type='primary' htmlType='submit'>
+                    Create
+                </Button>
+            </Form>
         </div>
     );
-    const ifModify = <h1>Modify project</h1>;
-
-    return <div>{match.params.id ? ifModify : ifNew}</div>;
 };
+
+const ModifyProject = props => {};
+const ProjectModify = Form.create()(CreateProject);
 
 export default ProjectModify;
