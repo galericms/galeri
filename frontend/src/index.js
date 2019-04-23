@@ -13,6 +13,7 @@ import SignUp from "./components/user/SignUp";
 import Login from "./components/user/Login";
 import Profile from "./components/user/Profile";
 import ProjectView from "./components/project/View";
+import ProjectModify from "./components/project/Modify";
 
 import { getSampleProjects } from "./ProjectService";
 
@@ -75,6 +76,11 @@ class App extends Component {
                             <Route path='/profile/:id' component={Profile} />
                             {/* Project */}
                             <Route
+                                path='/project-edit/:id?'
+                                component={ProjectModify}
+                            />
+                            <Route
+                                exact
                                 path='/projects/:id'
                                 component={ProjectView}
                             />
