@@ -8,27 +8,31 @@ import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
 const CreateProject = props => {
-    const [allTags, setAllTags] = useState([
-        "software",
-        "hardware",
-        "math",
-        "science",
-        "laser"
-    ]);
+    const allTags = ["software", "hardware", "math", "science", "laser"];
+    const allCollaborators = [
+        "bsmith@example.com",
+        "tom@example.com",
+        "johhny@rockets.net"
+    ];
 
-    const [projectTags, setProjectTags] = useState([]);
+    const [projectTags, setProjectTags] = useState("");
+    const [collaborators, setCollaborators] = useState("");
 
     const editorRef = React.createRef();
     const { getFieldDecorator } = props.form;
 
     const handleSubmit = e => {
         e.preventDefault();
+
         // MD editor content
         const content = editorRef.current.getInstance().getValue();
         console.log(content);
 
         // Tags
         console.log(projectTags);
+
+        // Collaborators
+        console.log(collaborators);
 
         // Other form inputs
         props.form.validateFields((err, values) => {
@@ -41,6 +45,10 @@ const CreateProject = props => {
 
     const handleAddTag = contentState => {
         setProjectTags(Mention.toString(contentState));
+    };
+
+    const handleAddCollaborator = contentState => {
+        setCollaborators(Mention.toString(contentState));
     };
 
     return (
@@ -62,7 +70,10 @@ const CreateProject = props => {
                             }
                         ]
                     })(
-                        <Input.TextArea placeholder='Enter a one or two sentence summary for your project' />
+                        <Input.TextArea
+                            placeholder='Enter a one or two sentence summary for your project'
+                            style={{ width: "100%", minWidth: "256px" }}
+                        />
                     )}
                 </Form.Item>
 
@@ -74,7 +85,14 @@ const CreateProject = props => {
                         style={{ width: "100%", minWidth: "128px" }}
                     />
                 </Form.Item>
-                {/* <Form.Item label='Collaborators' /> */}
+                <Form.Item label='Collaborators'>
+                    <Mention
+                        placeholder='@collaborator'
+                        suggestions={allCollaborators}
+                        onChange={handleAddCollaborator}
+                        style={{ width: "100%", minWidth: "512px" }}
+                    />
+                </Form.Item>
 
                 <br />
                 <hr />
