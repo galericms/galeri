@@ -8,7 +8,7 @@ import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
 const CreateProject = props => {
-    const [tags, setTags] = useState([
+    const [allTags, setAllTags] = useState([
         "software",
         "hardware",
         "math",
@@ -16,19 +16,31 @@ const CreateProject = props => {
         "laser"
     ]);
 
+    const [projectTags, setProjectTags] = useState([]);
+
     const editorRef = React.createRef();
     const { getFieldDecorator } = props.form;
 
     const handleSubmit = e => {
         e.preventDefault();
+        // MD editor content
         const content = editorRef.current.getInstance().getValue();
         console.log(content);
+
+        // Tags
+        console.log(projectTags);
+
+        // Other form inputs
         props.form.validateFields((err, values) => {
             if (!err) {
                 console.log("Received values of form: ", values);
                 //do create projct
             }
         });
+    };
+
+    const handleAddTag = contentState => {
+        setProjectTags(Mention.toString(contentState));
     };
 
     return (
@@ -57,7 +69,8 @@ const CreateProject = props => {
                 <Form.Item label='Tags'>
                     <Mention
                         placeholder='@tag'
-                        suggestions={tags}
+                        suggestions={allTags}
+                        onChange={handleAddTag}
                         style={{ width: "100%", minWidth: "128px" }}
                     />
                 </Form.Item>
