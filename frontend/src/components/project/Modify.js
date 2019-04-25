@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Mention } from "antd";
-import { getSampleProject } from "../../ProjectService";
 
 import "codemirror/lib/codemirror.css";
 import "tui-editor/dist/tui-editor.min.css";
 import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
-import { METHODS } from "http";
 
 const CreateProject = props => {
     const allTags = ["software", "hardware", "math", "science", "laser"];
@@ -46,10 +44,17 @@ const CreateProject = props => {
         });
     };
 
-    const uploadImage = blob => {
+    const handleAddTag = contentState => {
+        setProjectTags(Mention.toString(contentState));
+    };
+
+    const handleAddCollaborator = contentState => {
+        setCollaborators(Mention.toString(contentState));
+    };
+
+    const uploadImage = (blob, callback) => {
         // Imgur client ID: 41f5c8b3bfcd69e
-        // Imgur client secret: b83c363c9bb8edea009bbd1c7e0607a8b8c6cd2c
-        // pls no use for harm
+
         // console.log(blob);
         fetch("https://api.imgur.com/3/image", {
             method: "POST",
@@ -59,16 +64,11 @@ const CreateProject = props => {
             body: blob
         })
             .then(response => response.json())
-            .then(response => console.log(response));
-        return "https://i.imgur.com/v0EORYr.jpg";
-    };
-
-    const handleAddTag = contentState => {
-        setProjectTags(Mention.toString(contentState));
-    };
-
-    const handleAddCollaborator = contentState => {
-        setCollaborators(Mention.toString(contentState));
+            .then(response => {
+                // console.log(response);
+                // console.log(response.data.link);
+                callback(response.data.link);
+            });
     };
 
     return (
@@ -142,9 +142,10 @@ const CreateProject = props => {
                     ]}
                     hooks={{
                         addImageBlobHook: (blob, callback) => {
-                            const uploadedImageURL = uploadImage(blob);
-                            callback(uploadedImageURL, "alt text");
-                            return false;
+                            uploadImage(blob, url => {
+                                callback(url, "alt text");
+                                return false;
+                            });
                         }
                     }}
                 />
