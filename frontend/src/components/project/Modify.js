@@ -6,6 +6,7 @@ import "codemirror/lib/codemirror.css";
 import "tui-editor/dist/tui-editor.min.css";
 import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
+import { METHODS } from "http";
 
 const CreateProject = props => {
     const allTags = ["software", "hardware", "math", "science", "laser"];
@@ -20,7 +21,6 @@ const CreateProject = props => {
 
     const editorRef = React.createRef();
     const { getFieldDecorator } = props.form;
-
 
     // TODO: Use Project Service, and send an obj
     // TODO: Load existing project
@@ -44,6 +44,23 @@ const CreateProject = props => {
                 //do create projct
             }
         });
+    };
+
+    const uploadImage = blob => {
+        // Imgur client ID: 41f5c8b3bfcd69e
+        // Imgur client secret: b83c363c9bb8edea009bbd1c7e0607a8b8c6cd2c
+        // pls no use for harm
+        // console.log(blob);
+        fetch("https://api.imgur.com/3/image", {
+            method: "POST",
+            headers: {
+                Authorization: "Client-ID 41f5c8b3bfcd69e"
+            },
+            body: blob
+        })
+            .then(response => response.json())
+            .then(response => console.log(response));
+        return "https://i.imgur.com/v0EORYr.jpg";
     };
 
     const handleAddTag = contentState => {
@@ -123,6 +140,13 @@ const CreateProject = props => {
                         "mark",
                         "table"
                     ]}
+                    hooks={{
+                        addImageBlobHook: (blob, callback) => {
+                            const uploadedImageURL = uploadImage(blob);
+                            callback(uploadedImageURL, "alt text");
+                            return false;
+                        }
+                    }}
                 />
                 <br />
                 <Button type='primary' htmlType='submit'>
