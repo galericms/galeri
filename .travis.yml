@@ -1,0 +1,22 @@
+---
+language: node_js
+node_js:
+  - "node"
+cache:
+  directories:
+  - frontend/node_modules/
+install:
+  - cd frontend/
+  - npm install
+script:
+  - pwd
+  - npm run build
+  - ls
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: frontend/build/
+  on:
+    branch: master
