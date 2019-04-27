@@ -7,8 +7,8 @@ cache:
   - frontend/node_modules/
 install:
   - cd frontend/
-  - npm install
   - npm install node-sass
+  - npm install
 script:
   - pwd
   - npm run build
