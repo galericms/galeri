@@ -1,13 +1,12 @@
 ---
 language: node_js
 node_js:
-  - "node"
+  - "7"
 cache:
   directories:
   - frontend/node_modules/
 install:
   - cd frontend/
-  - npm install node-sass
   - npm install
 script:
   - pwd
