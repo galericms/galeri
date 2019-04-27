@@ -10,7 +10,7 @@ install:
   - npm install
 script:
   - pwd
-  - npm run build
+  - CI=false npm run build
   - ls
 deploy:
   provider: pages
