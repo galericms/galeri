@@ -45,7 +45,9 @@ class App extends Component {
 
     render() {
         return (
-            <Router>
+            <Router
+              basename={process.env.PUBLIC_URL}
+            >
                 <Layout>
                     <Header
                         title={this.state.title}
