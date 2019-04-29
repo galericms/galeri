@@ -9,7 +9,9 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "Tom Smith",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 2,
@@ -17,7 +19,9 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 3,
@@ -25,7 +29,9 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 4,
@@ -33,7 +39,9 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 5,
@@ -41,7 +49,9 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     }
 ];
 

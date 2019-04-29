@@ -83,7 +83,7 @@ class App extends Component {
                                 )}
                             />
                             <Route
-                                path='/project-edit/:id?'
+                                path='/project-edit/:id'
                                 component={props => (
                                     <ProjectModify {...props} />
                                 )}
