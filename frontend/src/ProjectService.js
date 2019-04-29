@@ -8,7 +8,7 @@ const sampleProjects = [
         title: "My Project1",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Tom Smith",
+        creator: "bobby123",
         content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
@@ -18,7 +18,7 @@ const sampleProjects = [
         title: "My Project2",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
+        creator: "tomboy124",
         content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
@@ -28,7 +28,7 @@ const sampleProjects = [
         title: "My Project3",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
+        creator: "bobby123",
         content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
@@ -38,7 +38,7 @@ const sampleProjects = [
         title: "My Project4",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
+        creator: "bobby123",
         content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
@@ -48,7 +48,7 @@ const sampleProjects = [
         title: "My Project5",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
+        creator: "bobby123",
         content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
