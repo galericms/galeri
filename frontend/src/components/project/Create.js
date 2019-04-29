@@ -6,7 +6,7 @@ import "tui-editor/dist/tui-editor.min.css";
 import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
-const ModifyProject = props => {
+const CreateProject = props => {
     const allTags = ["software", "hardware", "math", "science", "laser"];
     const allCollaborators = [
         "bsmith@example.com",
@@ -73,7 +73,7 @@ const ModifyProject = props => {
 
     return (
         <div>
-            <h1>Modify the project</h1>
+            <h1>Create a project</h1>
             <Form onSubmit={handleSubmit} layout='inline'>
                 <Form.Item label='Project Title'>
                     {getFieldDecorator("title", {
@@ -158,6 +158,6 @@ const ModifyProject = props => {
     );
 };
 
-const ProjectModify = Form.create()(ModifyProject);
+const ProjectCreate = Form.create()(CreateProject);
 
-export default ProjectModify;
+export default ProjectCreate;
