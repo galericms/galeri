@@ -18,7 +18,7 @@ const Header = props => {
             <Menu
                 theme='dark'
                 mode='horizontal'
-                defaultSelectedKeys={["new-project"]}
+                // defaultSelectedKeys={["create-project"]}
                 selectable={false}
                 style={{ lineHeight: "64px" }}
             >
@@ -62,8 +62,8 @@ const Header = props => {
                     <Link to='/signup'>SignUp</Link>
                 </Menu.Item>
 
-                <Menu.Item key='new-project' style={{ float: "right" }}>
-                    <Link to='/project-edit'>Create a new Project</Link>
+                <Menu.Item key='create-project' style={{ float: "right" }}>
+                    <Link to='/project-create'>Create a new Project</Link>
                 </Menu.Item>
 
             </Menu>

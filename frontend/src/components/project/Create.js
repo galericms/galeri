@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Mention } from "antd";
 
 import "codemirror/lib/codemirror.css";
@@ -6,55 +6,50 @@ import "tui-editor/dist/tui-editor.min.css";
 import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
-import { getSampleProject } from "../../ProjectService";
-
-const ModifyProject = props => {
-    const [project, setProject] = useState({
-        id: null,
-        title: "loading...",
-        summary: "loading...",
-        content: "loading...",
-        tags: "software",
-        collaborators: ""
-    });
+const CreateProject = props => {
     const allTags = ["software", "hardware", "math", "science", "laser"];
     const allCollaborators = [
         "bsmith@example.com",
         "tom@example.com",
         "johhny@rockets.net"
     ];
-    const editorRef = React.createRef();
-    const { getFieldDecorator, setFieldsValue } = props.form;
-    const { toContentState } = Mention;
 
-    useEffect(() => {
-        let isSubscribed = true;
-        getSampleProject(props.match.params.id).then(
-            response => {
-                if (isSubscribed) {
-                    // console.log(response)
-                    setProject(response);
-                    setFieldsValue({
-                        title: response.title,
-                        summary: response.summary
-                    });
-                }
-            },
-            err => console.error(err.message)
-        );
-        if (editorRef.current) {
-            console.log(project.content)
-            editorRef.current.getInstance().setValue(project.content);
-        }
-        return () => (isSubscribed = false);
-    }, [project.content]);
+    const [projectTags, setProjectTags] = useState("");
+    const [collaborators, setCollaborators] = useState("");
+
+    const editorRef = React.createRef();
+    const { getFieldDecorator } = props.form;
+
+    // TODO: Use Project Service, and send an obj
+    // TODO: Load existing project
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        // MD editor content
+        const content = editorRef.current.getInstance().getValue();
+        console.log(content);
+
+        // Tags
+        console.log(projectTags);
+
+        // Collaborators
+        console.log(collaborators);
+
+        // Other form inputs
+        props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log("Received values of form: ", values);
+                //do create projct
+            }
+        });
+    };
 
     const handleAddTag = contentState => {
-        setProject({ tags: Mention.toString(contentState) });
+        setProjectTags(Mention.toString(contentState));
     };
 
     const handleAddCollaborator = contentState => {
-        setProject({ collaborators: Mention.toString(contentState) });
+        setCollaborators(Mention.toString(contentState));
     };
 
     const uploadImage = (blob, callback) => {
@@ -76,25 +71,9 @@ const ModifyProject = props => {
             });
     };
 
-    const handleSubmit = e => {
-        e.preventDefault();
-
-        // MD editor content
-        const content = editorRef.current.getInstance().getValue();
-        console.log(content);
-
-        // Other form inputs
-        props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log("Received values of form: ", values);
-                //do create projct
-            }
-        });
-    };
-
     return (
         <div>
-            <h1>Modify project, {project.title} </h1>
+            <h1>Create a project</h1>
             <Form onSubmit={handleSubmit} layout='inline'>
                 <Form.Item label='Project Title'>
                     {getFieldDecorator("title", {
@@ -119,20 +98,12 @@ const ModifyProject = props => {
                 </Form.Item>
 
                 <Form.Item label='Tags'>
-                    {
-                        (getFieldDecorator("tags", {
-                            defaultValue: toContentState(project.tags)
-                        }),
-                        (
-                            <Mention
-                                placeholder='@tag'
-                                // defaultValue={toContentState(project.tags)}
-                                suggestions={allTags}
-                                onChange={handleAddTag}
-                                style={{ width: "100%", minWidth: "128px" }}
-                            />
-                        ))
-                    }
+                    <Mention
+                        placeholder='@tag'
+                        suggestions={allTags}
+                        onChange={handleAddTag}
+                        style={{ width: "100%", minWidth: "128px" }}
+                    />
                 </Form.Item>
                 <Form.Item label='Collaborators'>
                     <Mention
@@ -148,7 +119,7 @@ const ModifyProject = props => {
                 <br />
                 <Editor
                     usageStatistics={false}
-                    initialValue={project.content}
+                    initialValue="> I'm a sample project!"
                     previewStyle='vertical'
                     height='auto'
                     minHeight='400px'
@@ -187,6 +158,6 @@ const ModifyProject = props => {
     );
 };
 
-const ProjectModify = Form.create()(ModifyProject);
+const ProjectCreate = Form.create()(CreateProject);
 
-export default ProjectModify;
+export default ProjectCreate;

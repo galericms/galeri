@@ -8,40 +8,50 @@ const sampleProjects = [
         title: "My Project1",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Tom Smith",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        creator: "bobby123",
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 2,
         title: "My Project2",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        creator: "tomboy124",
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 3,
         title: "My Project3",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        creator: "bobby123",
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 4,
         title: "My Project4",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        creator: "bobby123",
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     },
     {
         id: 5,
         title: "My Project5",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        creator: "Barb Johnson",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*"
+        creator: "bobby123",
+        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        tags: "software hardware",
+        collaborators: "bsmith@example.com"
     }
 ];
 
