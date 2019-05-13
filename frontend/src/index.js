@@ -13,6 +13,8 @@ import SignUp from "./components/user/SignUp";
 import Login from "./components/user/Login";
 import Profile from "./components/user/Profile";
 import ProjectView from "./components/project/View";
+import ProjectCreate from "./components/project/Create";
+import ProjectModify from "./components/project/Modify";
 
 import { getSampleProjects } from "./ProjectService";
 
@@ -75,6 +77,19 @@ class App extends Component {
                             <Route path='/profile/:id' component={Profile} />
                             {/* Project */}
                             <Route
+                                path='/project-create'
+                                component={props => (
+                                    <ProjectCreate {...props} />
+                                )}
+                            />
+                            <Route
+                                path='/project-edit/:id'
+                                component={props => (
+                                    <ProjectModify {...props} />
+                                )}
+                            />
+                            <Route
+                                exact
                                 path='/projects/:id'
                                 component={ProjectView}
                             />

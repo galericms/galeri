@@ -24,7 +24,7 @@ const Home = props => {
             {isCardView ? (
                 <CardView projects={props.projects} />
             ) : (
-                <DetaiView cardData={props.projects} />
+                <DetaiView projects={props.projects} />
             )}
         </div>
     );

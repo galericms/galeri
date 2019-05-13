@@ -7,18 +7,18 @@ const Header = props => {
     const [userName, setUserName] = useState("Profile");
     const [userID, setUserID] = useState(-1);
 
-    // TODO: check cookie for who's logged in, replace "Profile" with the 
+    // TODO: check cookie for who's logged in, replace "Profile" with the
     //   username, userID with the ID, and hide the SignUp/Login buttons
-    // Also, hide the Profile link when not logged in. 
+    // Also, hide the Profile link when not logged in.
 
-    const profileURL = `/profile/${userID}`; 
+    const profileURL = `/profile/${userID}`;
 
     return (
         <AntHeader>
             <Menu
                 theme='dark'
                 mode='horizontal'
-                defaultSelectedKeys={["signup"]}
+                // defaultSelectedKeys={["create-project"]}
                 selectable={false}
                 style={{ lineHeight: "64px" }}
             >
@@ -61,6 +61,11 @@ const Header = props => {
                 <Menu.Item key='signup' style={{ float: "right" }}>
                     <Link to='/signup'>SignUp</Link>
                 </Menu.Item>
+
+                <Menu.Item key='create-project' style={{ float: "right" }}>
+                    <Link to='/project-create'>Create a new Project</Link>
+                </Menu.Item>
+
             </Menu>
         </AntHeader>
     );
