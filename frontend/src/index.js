@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./index.scss";
 
@@ -46,9 +46,7 @@ class App extends Component {
 
     render() {
         return (
-            <Router
-              basename={process.env.PUBLIC_URL}
-            >
+            <Router basename={process.env.PUBLIC_URL}>
                 <Layout>
                     <Header
                         title={this.state.title}
@@ -62,39 +60,44 @@ class App extends Component {
                                 minHeight: 300
                             }}
                         >
-                            {/* Home */}
-                            <Route
-                                path='/'
-                                exact
-                                render={props => (
-                                    <Home projects={this.state.projects} />
-                                )}
-                            />
-                            {/* Misc */}
-                            <Route path='/about' component={About} />
-                            <Route path='/contact' component={Contact} />
-                            {/* User */}
-                            <Route path='/signup' component={SignUp} />
-                            <Route path='/login' component={Login} />
-                            <Route path='/profile/:id' component={Profile} />
-                            {/* Project */}
-                            <Route
-                                path='/project-create'
-                                component={props => (
-                                    <ProjectCreate {...props} />
-                                )}
-                            />
-                            <Route
-                                path='/project-edit/:id'
-                                component={props => (
-                                    <ProjectModify {...props} />
-                                )}
-                            />
-                            <Route
-                                exact
-                                path='/projects/:id'
-                                component={ProjectView}
-                            />
+                            <Switch>
+                                {/* Home */}
+                                <Route
+                                    path="/"
+                                    exact
+                                    render={props => (
+                                        <Home projects={this.state.projects} />
+                                    )}
+                                />
+                                {/* Misc */}
+                                <Route path="/about" component={About} />
+                                <Route path="/contact" component={Contact} />
+                                {/* User */}
+                                <Route path="/signup" component={SignUp} />
+                                <Route path="/login" component={Login} />
+                                <Route
+                                    path="/profile/:id"
+                                    component={Profile}
+                                />
+                                {/* Project */}
+                                <Route
+                                    path="/projects/create"
+                                    component={props => (
+                                        <ProjectCreate {...props} />
+                                    )}
+                                />
+                                <Route
+                                    path="/projects/:id/edit"
+                                    component={props => (
+                                        <ProjectModify {...props} />
+                                    )}
+                                />
+                                <Route
+                                    exact
+                                    path="/projects/:id"
+                                    component={ProjectView}
+                                />
+                            </Switch>
                         </div>
                     </Content>
                     <Footer />

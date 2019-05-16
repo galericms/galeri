@@ -4,7 +4,9 @@ import { Layout, Menu, Input } from "antd";
 const { Header: AntHeader } = Layout;
 
 const Header = props => {
+    // eslint-disable-next-line
     const [userName, setUserName] = useState("Profile");
+    // eslint-disable-next-line
     const [userID, setUserID] = useState(-1);
 
     // TODO: check cookie for who's logged in, replace "Profile" with the
@@ -18,7 +20,6 @@ const Header = props => {
             <Menu
                 theme='dark'
                 mode='horizontal'
-                // defaultSelectedKeys={["create-project"]}
                 selectable={false}
                 style={{ lineHeight: "64px" }}
             >
@@ -63,7 +64,7 @@ const Header = props => {
                 </Menu.Item>
 
                 <Menu.Item key='create-project' style={{ float: "right" }}>
-                    <Link to='/project-create'>Create a new Project</Link>
+                    <Link to='/projects/create'>Create a new Project</Link>
                 </Menu.Item>
 
             </Menu>
