@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
-import { Form, Input, Button, Mention } from "antd";
-
-import { Form, FormControl, FormGroup, Button } from "react-bootstrap";
+import {
+    Form,
+    FormControl,
+    FormGroup,
+    Button,
+    FormLabel
+} from "react-bootstrap";
 
 import "codemirror/lib/codemirror.css";
 import "tui-editor/dist/tui-editor.min.css";
@@ -10,50 +14,22 @@ import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
 const CreateProject = props => {
+    const [formContent, setFormContent] = useState({
+        title: "",
+        summary: "",
+        tags: [],
+        collaborators: [],
+        content: ""
+    });
+
+    // TODO: Use react-bootstrap-typeahead for autofill / dropdown
+    // http://ericgio.github.io/react-bootstrap-typeahead/#controlling-selections
     const allTags = ["software", "hardware", "math", "science", "laser"];
     const allCollaborators = [
         "bsmith@example.com",
         "tom@example.com",
         "johhny@rockets.net"
     ];
-
-    const [projectTags, setProjectTags] = useState("");
-    const [collaborators, setCollaborators] = useState("");
-
-    const editorRef = React.createRef();
-    const { getFieldDecorator } = props.form;
-
-    // TODO: Use Project Service, and send an obj
-    // TODO: Load existing project
-    const handleSubmit = e => {
-        e.preventDefault();
-
-        // MD editor content
-        const content = editorRef.current.getInstance().getValue();
-        console.log(content);
-
-        // Tags
-        console.log(projectTags);
-
-        // Collaborators
-        console.log(collaborators);
-
-        // Other form inputs
-        props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log("Received values of form: ", values);
-                //do create projct
-            }
-        });
-    };
-
-    const handleAddTag = contentState => {
-        setProjectTags(Mention.toString(contentState));
-    };
-
-    const handleAddCollaborator = contentState => {
-        setCollaborators(Mention.toString(contentState));
-    };
 
     const uploadImage = (blob, callback) => {
         // Imgur client ID: 41f5c8b3bfcd69e
@@ -74,10 +50,112 @@ const CreateProject = props => {
             });
     };
 
+    const editorRef = React.createRef();
+
+    // TODO: Use Project Service, and send an obj
+    // TODO: Load existing project
+    const handleSubmit = e => {
+        e.preventDefault();
+        // MD editor content
+        const MDContent = editorRef.current.getInstance().getValue();
+        setFormContent({ ...formContent, content: MDContent });
+        console.log(formContent);
+        // console.log(content);
+    };
+
+    const handleChange = e => {
+        const MDContent = editorRef.current.getInstance().getValue();
+        const value = e.target.value;
+        setFormContent({
+            ...formContent,
+            [e.target.name]: value,
+            content: MDContent
+        });
+    };
+
     return (
         <div>
-            <h1>Create a project</h1>
-            <Form onSubmit={handleSubmit} layout="inline">
+            <h1 className="text-center">Create a project</h1>
+            <Form onSubmit={handleSubmit}>
+                <FormGroup controlId="title">
+                    <FormLabel>Project Title</FormLabel>
+                    <FormControl
+                        type="text"
+                        name="title"
+                        onChange={handleChange}
+                    />
+                </FormGroup>
+                <FormGroup controlId="summary">
+                    <FormLabel>Project Summary</FormLabel>
+                    <FormControl
+                        type="text"
+                        name="summary"
+                        onChange={handleChange}
+                    />
+                </FormGroup>
+                {/* TODO: Use react-bootstrap-typeahead for autofill / dropdown */}
+                {/* http://ericgio.github.io/react-bootstrap-typeahead/#controlling-selections */}
+                {/* <FormGroup controlId="tags">
+                    <FormLabel>Tags</FormLabel>
+                    <FormControl
+                    type="text"
+                    name="tags"
+                    onChange={handleChange}
+                    />
+                </FormGroup>
+
+                <FormGroup controlId="title">
+                    <FormLabel>Project Title</FormLabel>
+                    <FormControl
+                    type="text"
+                    name="title"
+                    onChange={handleChange}
+                    />
+                </FormGroup> */}
+                <br />
+                <hr />
+                <br />
+                <Editor
+                    usageStatistics={false}
+                    initialValue="> I'm a sample project!"
+                    previewStyle="vertical"
+                    height="auto"
+                    minHeight="400px"
+                    initialEditType="wysiwyg"
+                    ref={editorRef}
+                    useCommandShortcut={true}
+                    exts={[
+                        {
+                            name: "chart",
+                            minWidth: 100,
+                            maxWidth: 600,
+                            minHeight: 100,
+                            maxHeight: 300
+                        },
+                        "scrollSync",
+                        "colorSyntax",
+                        "uml",
+                        "mark",
+                        "table"
+                    ]}
+                    hooks={{
+                        addImageBlobHook: (blob, callback) => {
+                            uploadImage(blob, url => {
+                                callback(url, "alt text");
+                                return false;
+                            });
+                        }
+                    }}
+                />
+                <br />
+                <div className="text-center">
+                    <Button type="submit" variant="primary">
+                        Submit
+                    </Button>
+                </div>
+            </Form>
+
+            {/* <Form onSubmit={handleSubmit} layout="inline">
                 <Form.Item label="Project Title">
                     {getFieldDecorator("title", {
                         rules: [{ required: true, message: "Enter a title!" }]
@@ -156,11 +234,12 @@ const CreateProject = props => {
                 <Button type="primary" htmlType="submit">
                     Create
                 </Button>
-            </Form>
+            </Form> */}
         </div>
     );
 };
 
-const ProjectCreate = Form.create()(CreateProject);
+// const ProjectCreate = Form.create()(CreateProject);
+const ProjectCreate = CreateProject;
 
 export default ProjectCreate;
