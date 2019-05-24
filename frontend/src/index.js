@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "antd/dist/antd.css";
+
 import "./index.scss";
 
 import Home from "./components/home";
@@ -18,8 +18,7 @@ import ProjectModify from "./components/project/Modify";
 
 import { getSampleProjects } from "./ProjectService";
 
-import { Layout } from "antd";
-const { Content } = Layout;
+import { Container } from "react-bootstrap";
 
 class App extends Component {
     constructor(props) {
@@ -46,59 +45,38 @@ class App extends Component {
 
     render() {
         return (
-            <Router
-              basename={process.env.PUBLIC_URL}
-            >
-                <Layout>
-                    <Header
-                        title={this.state.title}
-                        searchFunc={q => this.doSearch(q)}
+            <Router basename={process.env.PUBLIC_URL}>
+                <Header
+                    title={this.state.title}
+                    searchFunc={q => this.doSearch(q)}
+                />
+                <Container>
+                    <Route
+                        path="/"
+                        exact
+                        render={props => (
+                            <Home projects={this.state.projects} />
+                        )}
                     />
-                    <Content style={{ padding: "0px 50px" }}>
-                        <div
-                            style={{
-                                background: "#fff",
-                                padding: 24,
-                                minHeight: 300
-                            }}
-                        >
-                            {/* Home */}
-                            <Route
-                                path='/'
-                                exact
-                                render={props => (
-                                    <Home projects={this.state.projects} />
-                                )}
-                            />
-                            {/* Misc */}
-                            <Route path='/about' component={About} />
-                            <Route path='/contact' component={Contact} />
-                            {/* User */}
-                            <Route path='/signup' component={SignUp} />
-                            <Route path='/login' component={Login} />
-                            <Route path='/profile/:id' component={Profile} />
-                            {/* Project */}
-                            <Route
-                                path='/project-create'
-                                component={props => (
-                                    <ProjectCreate {...props} />
-                                )}
-                            />
-                            <Route
-                                path='/project-edit/:id'
-                                component={props => (
-                                    <ProjectModify {...props} />
-                                )}
-                            />
-                            <Route
-                                exact
-                                path='/projects/:id'
-                                component={ProjectView}
-                            />
-                        </div>
-                    </Content>
+                    <Route path="/about" component={About} />
+                    <Route path="/contact" component={Contact} />
+
+                    <Route path="/signup" component={SignUp} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/profile/:id" component={Profile} />
+
+                    <Route
+                        path="/project-create"
+                        component={props => <ProjectCreate {...props} />}
+                    />
+                    <Route
+                        path="/project-edit/:id"
+                        component={props => <ProjectModify {...props} />}
+                    />
+                    <Route exact path="/projects/:id" component={ProjectView} />
+
                     <Footer />
-                </Layout>
+                </Container>
             </Router>
         );
     }

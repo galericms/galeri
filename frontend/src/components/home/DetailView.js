@@ -1,29 +1,32 @@
 import React from "react";
 import { withRouter } from "react-router";
-import { Card, Row, Col } from "antd";
+
+import { Card, Row, Col } from "react-bootstrap";
 
 const DetailView = props => {
     const cards = props.projects.map(project => {
         return (
             <Col
-                xs={24}
-                sm={24}
-                md={24}
-                lg={24}
-                xl={24}
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={12}
                 key={project.id}
                 style={{ marginBottom: "16px" }}
             >
                 <Card
-                    key={project.id}
-                    title={project.title}
-                    extra={project.author}
-                    hoverable={true}
                     onClick={() =>
                         props.history.push(`/projects/${project.id}`)
                     }
                 >
-                    {project.summary}
+                    <Card.Header>{project.title}</Card.Header>
+                    <Card.Body>
+                        <Card.Text>{project.summary}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer className="text-muted">
+                        - {project.creator}
+                    </Card.Footer>
                 </Card>
             </Col>
         );
@@ -31,7 +34,7 @@ const DetailView = props => {
 
     return (
         <div>
-            <Row gutter={16}>{cards}</Row>
+            <Row>{cards}</Row>
         </div>
     );
 };

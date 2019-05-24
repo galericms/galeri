@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu, Input } from "antd";
-const { Header: AntHeader } = Layout;
+import { withRouter } from "react-router-dom";
+
+import { LinkContainer } from "react-router-bootstrap";
+
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 const Header = props => {
     const [userName, setUserName] = useState("Profile");
@@ -14,60 +16,40 @@ const Header = props => {
     const profileURL = `/profile/${userID}`;
 
     return (
-        <AntHeader>
-            <Menu
-                theme='dark'
-                mode='horizontal'
-                // defaultSelectedKeys={["create-project"]}
-                selectable={false}
-                style={{ lineHeight: "64px" }}
-            >
-                <Menu.Item key='home'>
-                    <Link to='/'>
-                        <img
-                            height='48'
-                            width='48'
-                            alt='logo'
-                            src={require("../../assets/GaleriLogo.png")}
-                            style={{
-                                backgroundColor: "#ffffff",
-                                borderRadius: "10px",
-                                margin: "5px"
-                            }}
+        <Navbar
+            collapseOnSelect
+            expand="sm"
+            bg="primary"
+            variant="dark"
+            sticky="top"
+        >
+            <LinkContainer to="/">
+                <Navbar.Brand>{props.title}</Navbar.Brand>
+            </LinkContainer>
+
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="ml-auto" activeKey={props.location.pathname}>
+                    <Form inline>
+                        <FormControl
+                            type="text"
+                            placeholder="Search Tags"
+                            className="mr-sm-2"
                         />
-                        <span
-                            style={{ fontWeight: "bold", fontSize: "1.25em" }}
-                        >
-                            {props.title}
-                        </span>
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key='search'>
-                    <Input.Search
-                        placeholder='Search for projects'
-                        onSearch={query => props.searchFunc(query)}
-                    />
-                </Menu.Item>
-
-                <Menu.Item key='profile' style={{ float: "right" }}>
-                    <Link to={profileURL}>{userName}</Link>
-                </Menu.Item>
-
-                <Menu.Item key='login' style={{ float: "right" }}>
-                    <Link to='/login'>Login</Link>
-                </Menu.Item>
-
-                <Menu.Item key='signup' style={{ float: "right" }}>
-                    <Link to='/signup'>SignUp</Link>
-                </Menu.Item>
-
-                <Menu.Item key='create-project' style={{ float: "right" }}>
-                    <Link to='/project-create'>Create a new Project</Link>
-                </Menu.Item>
-
-            </Menu>
-        </AntHeader>
+                        <Button variant="outline-light">Search</Button>
+                    </Form>
+                    <LinkContainer to="/project-create">
+                        <Nav.Link>Create a new Project</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/login">
+                        <Nav.Link>Login</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/signup">
+                        <Nav.Link>Register</Nav.Link>
+                    </LinkContainer>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     );
 };
-export default Header;
+export default withRouter(Header);

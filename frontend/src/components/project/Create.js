@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+
 import { Form, Input, Button, Mention } from "antd";
+
+import { Form, FormControl, FormGroup, Button } from "react-bootstrap";
 
 import "codemirror/lib/codemirror.css";
 import "tui-editor/dist/tui-editor.min.css";
@@ -74,14 +77,14 @@ const CreateProject = props => {
     return (
         <div>
             <h1>Create a project</h1>
-            <Form onSubmit={handleSubmit} layout='inline'>
-                <Form.Item label='Project Title'>
+            <Form onSubmit={handleSubmit} layout="inline">
+                <Form.Item label="Project Title">
                     {getFieldDecorator("title", {
                         rules: [{ required: true, message: "Enter a title!" }]
-                    })(<Input placeholder='Title' />)}
+                    })(<Input placeholder="Title" />)}
                 </Form.Item>
 
-                <Form.Item label='Summary'>
+                <Form.Item label="Summary">
                     {getFieldDecorator("summary", {
                         rules: [
                             {
@@ -91,23 +94,23 @@ const CreateProject = props => {
                         ]
                     })(
                         <Input.TextArea
-                            placeholder='Enter a one or two sentence summary for your project'
+                            placeholder="Enter a one or two sentence summary for your project"
                             style={{ width: "100%", minWidth: "256px" }}
                         />
                     )}
                 </Form.Item>
 
-                <Form.Item label='Tags'>
+                <Form.Item label="Tags">
                     <Mention
-                        placeholder='@tag'
+                        placeholder="@tag"
                         suggestions={allTags}
                         onChange={handleAddTag}
                         style={{ width: "100%", minWidth: "128px" }}
                     />
                 </Form.Item>
-                <Form.Item label='Collaborators'>
+                <Form.Item label="Collaborators">
                     <Mention
-                        placeholder='@collaborator'
+                        placeholder="@collaborator"
                         suggestions={allCollaborators}
                         onChange={handleAddCollaborator}
                         style={{ width: "100%", minWidth: "512px" }}
@@ -120,10 +123,10 @@ const CreateProject = props => {
                 <Editor
                     usageStatistics={false}
                     initialValue="> I'm a sample project!"
-                    previewStyle='vertical'
-                    height='auto'
-                    minHeight='400px'
-                    initialEditType='wysiwyg'
+                    previewStyle="vertical"
+                    height="auto"
+                    minHeight="400px"
+                    initialEditType="wysiwyg"
                     ref={editorRef}
                     useCommandShortcut={true}
                     exts={[
@@ -150,7 +153,7 @@ const CreateProject = props => {
                     }}
                 />
                 <br />
-                <Button type='primary' htmlType='submit'>
+                <Button type="primary" htmlType="submit">
                     Create
                 </Button>
             </Form>
