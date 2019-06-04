@@ -11,6 +11,7 @@ import { Button } from "react-bootstrap";
 const ProjectView = props => {
     const [currentProject, setCurrentProject] = useState({});
     const [errMsg, setErrMsg] = useState();
+    // eslint-disable-next-line
     const [loggedInUser, setLoggedInUser] = useState("bobby123");
 
     useEffect(() => {

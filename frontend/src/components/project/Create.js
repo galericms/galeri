@@ -24,12 +24,12 @@ const CreateProject = props => {
 
     // TODO: Use react-bootstrap-typeahead for autofill / dropdown
     // http://ericgio.github.io/react-bootstrap-typeahead/#controlling-selections
-    const allTags = ["software", "hardware", "math", "science", "laser"];
-    const allCollaborators = [
-        "bsmith@example.com",
-        "tom@example.com",
-        "johhny@rockets.net"
-    ];
+    // const allTags = ["software", "hardware", "math", "science", "laser"];
+    // const allCollaborators = [
+    //     "bsmith@example.com",
+    //     "tom@example.com",
+    //     "johhny@rockets.net"
+    // ];
 
     const uploadImage = (blob, callback) => {
         // Imgur client ID: 41f5c8b3bfcd69e
@@ -64,6 +64,7 @@ const CreateProject = props => {
     };
 
     const handleChange = e => {
+        // TODO: Fix this so input works again
         const MDContent = editorRef.current.getInstance().getValue();
         const value = e.target.value;
         setFormContent({

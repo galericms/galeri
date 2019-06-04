@@ -6,13 +6,16 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 const Header = props => {
+    // eslint-disable-next-line
     const [userName, setUserName] = useState("Profile");
+    // eslint-disable-next-line
     const [userID, setUserID] = useState(-1);
 
     // TODO: check cookie for who's logged in, replace "Profile" with the
     //   username, userID with the ID, and hide the SignUp/Login buttons
     // Also, hide the Profile link when not logged in.
-
+    
+    // eslint-disable-next-line
     const profileURL = `/profile/${userID}`;
 
     return (
