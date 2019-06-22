@@ -29,14 +29,14 @@ class App extends Component {
         };
     }
 
-    componentDidMount() {
-        getSampleProjects().then(
-            response => {
-                this.setState({ projects: response });
-            },
-            err => console.error(err.message)
-        );
-    }
+    // componentDidMount() {
+    //     getSampleProjects().then(
+    //         response => {
+    //             this.setState({ projects: response });
+    //         },
+    //         err => console.error(err.message)
+    //     );
+    // }
 
     doSearch = query => {
         window.alert("You searched: " + query);
@@ -51,13 +51,14 @@ class App extends Component {
                 />
                 <Container>
                     <Switch>
-                        <Route
+                        <Route exact path="/" component={Home} />
+                        {/* <Route
                             path="/"
                             exact
                             render={props => (
                                 <Home projects={this.state.projects} />
                             )}
-                        />
+                        /> */}
                         <Route path="/about" component={About} />
                         <Route path="/contact" component={Contact} />
 

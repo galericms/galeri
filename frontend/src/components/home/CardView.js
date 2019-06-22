@@ -1,7 +1,8 @@
 import React from "react";
-import { withRouter } from "react-router";
 
-import { Card, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+
+import ProjCard from "./ProjCard";
 
 const CardView = props => {
     const cards = props.projects.map(project => {
@@ -15,19 +16,7 @@ const CardView = props => {
                 key={project.id}
                 style={{ marginBottom: "16px" }}
             >
-                <Card
-                    onClick={() =>
-                        props.history.push(`/projects/${project.id}`)
-                    }
-                >
-                    <Card.Header>{project.title}</Card.Header>
-                    <Card.Body>
-                        <Card.Text>{project.summary}</Card.Text>
-                    </Card.Body>
-                    <Card.Footer className="text-muted">
-                        - {project.creator}
-                    </Card.Footer>
-                </Card>
+                <ProjCard project={project} />
             </Col>
         );
     });
@@ -38,4 +27,4 @@ const CardView = props => {
         </div>
     );
 };
-export default withRouter(CardView);
+export default CardView;
