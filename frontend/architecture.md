@@ -61,6 +61,7 @@ See `../wireframes/GaleriSite.xcf`
   - `/users`
     - Create new user
   - `/tags`
+    - Create a new tag
 - PATCH / PUT's:
   - `/projects/:id`
     - Update project based on `id`
