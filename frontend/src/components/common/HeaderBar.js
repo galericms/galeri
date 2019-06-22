@@ -48,7 +48,7 @@ const Header = props => {
                         />
                         <Button variant="outline-light">Search</Button>
                     </Form>
-                    <LinkContainer to="/project-create">
+                    <LinkContainer to="/project/create">
                         <Nav.Link>Create a new Project</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/login">

@@ -14,6 +14,7 @@ const ProjectView = props => {
     // eslint-disable-next-line
     const [loggedInUser, setLoggedInUser] = useState("bobby123");
 
+
     useEffect(() => {
         getSampleProject(props.match.params.id).then(
             response => {
@@ -37,7 +38,7 @@ const ProjectView = props => {
                     <Button
                         onClick={() =>
                             props.history.push(
-                                `/project-edit/${currentProject.id}`
+                                `/projects/${currentProject.id}/edit`
                             )
                         }
                     >

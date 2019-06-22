@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.scss";
 
 import Home from "./components/home";
@@ -51,30 +50,35 @@ class App extends Component {
                     searchFunc={q => this.doSearch(q)}
                 />
                 <Container>
-                    <Route
-                        path="/"
-                        exact
-                        render={props => (
-                            <Home projects={this.state.projects} />
-                        )}
-                    />
-                    <Route path="/about" component={About} />
-                    <Route path="/contact" component={Contact} />
+                    <Switch>
+                        <Route
+                            path="/"
+                            exact
+                            render={props => (
+                                <Home projects={this.state.projects} />
+                            )}
+                        />
+                        <Route path="/about" component={About} />
+                        <Route path="/contact" component={Contact} />
 
-                    <Route path="/signup" component={SignUp} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/profile/:id" component={Profile} />
+                        <Route path="/signup" component={SignUp} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/profile/:id" component={Profile} />
 
-                    <Route
-                        path="/project-create"
-                        component={props => <ProjectCreate {...props} />}
-                    />
-                    <Route
-                        path="/project-edit/:id"
-                        component={props => <ProjectModify {...props} />}
-                    />
-                    <Route exact path="/projects/:id" component={ProjectView} />
-
+                        <Route
+                            path="/project/create"
+                            component={props => <ProjectCreate {...props} />}
+                        />
+                        <Route
+                            path="/projects/:id/edit"
+                            component={props => <ProjectModify {...props} />}
+                        />
+                        <Route
+                            exact
+                            path="/projects/:id"
+                            component={ProjectView}
+                        />
+                    </Switch>
                     <Footer />
                 </Container>
             </Router>
