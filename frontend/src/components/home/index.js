@@ -1,32 +1,38 @@
 import React, { useState } from "react";
+
 import CardView from "./CardView";
 import DetaiView from "./DetailView";
-import { Button } from "antd";
+
+import { Button, Container } from "react-bootstrap";
+import { GridTwoUpIcon, ListIcon } from "react-open-iconic-svg";
 
 const Home = props => {
     const [isCardView, setIsCardView] = useState(true);
 
     return (
-        <div style={{ maxWidth: "1280px", margin: "auto" }}>
-            <div style={{ float: "left" }}>
-                <h1>Home</h1>
-            </div>
-            <div style={{ float: "right" }}>
-                <Button
-                    onClick={() => setIsCardView(!isCardView)}
-                    icon={isCardView ? "bars" : "appstore"}
-                >
-                    Change View
-                </Button>
-            </div>
-            <div style={{ clear: "both", marginBottom: "15px" }} />
+        <Container fluid>
+            <div className="clearfix mb-3" />
+            <Button
+                className="float-right"
+                variant="primary"
+                style={{
+                    fill: "#fff",
+                    transform: "scale(1.5)",
+                    padding: "2px 12px"
+                }}
+                onClick={() => setIsCardView(!isCardView)}
+            >
+                {isCardView ? <ListIcon /> : <GridTwoUpIcon />}
+            </Button>
+            <h1 className="text-center">Home</h1>
+            <div className="clearfix mb-3" />
 
             {isCardView ? (
                 <CardView projects={props.projects} />
             ) : (
                 <DetaiView projects={props.projects} />
             )}
-        </div>
+        </Container>
     );
 };
 export default Home;

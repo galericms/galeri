@@ -5,8 +5,9 @@
 ## TODO
 - Pick a UI framework
   - ~~[ ] Grommet~~
-  - [x] Ant.Design?
+  <!-- - [x] Ant.Design? -->
   - ~~[ ] Material-UI~~
+  - [x] React-Bootstrap
 - [x] Learn the UI framework
 - [x] Restructure current components to fit UI framework
   - [x] Rename components & create convention

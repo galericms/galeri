@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu, Input } from "antd";
-const { Header: AntHeader } = Layout;
+import { withRouter } from "react-router-dom";
+
+import { LinkContainer } from "react-router-bootstrap";
+
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 const Header = props => {
     // eslint-disable-next-line
@@ -13,62 +15,51 @@ const Header = props => {
     //   username, userID with the ID, and hide the SignUp/Login buttons
     // Also, hide the Profile link when not logged in.
 
+    // eslint-disable-next-line
     const profileURL = `/profile/${userID}`;
 
     return (
-        <AntHeader>
-            <Menu
-                theme='dark'
-                mode='horizontal'
-                selectable={false}
-                style={{ lineHeight: "64px" }}
-            >
-                <Menu.Item key='home'>
-                    <Link to='/'>
-                        <img
-                            height='48'
-                            width='48'
-                            alt='logo'
-                            src={require("../../assets/GaleriLogo.png")}
-                            style={{
-                                backgroundColor: "#ffffff",
-                                borderRadius: "10px",
-                                margin: "5px"
-                            }}
-                        />
-                        <span
-                            style={{ fontWeight: "bold", fontSize: "1.25em" }}
-                        >
-                            {props.title}
-                        </span>
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key='search'>
-                    <Input.Search
-                        placeholder='Search for projects'
-                        onSearch={query => props.searchFunc(query)}
+        <Navbar
+            collapseOnSelect
+            expand="md"
+            bg="primary"
+            variant="dark"
+            sticky="top"
+        >
+            <LinkContainer to="/">
+                <Navbar.Brand>
+                    <img
+                        src={require("../../assets/GaleriLogo.png")}
+                        height="45px"
+                        alt="Logo"
                     />
-                </Menu.Item>
+                    <span className="ml-2">{props.title}</span>
+                </Navbar.Brand>
+            </LinkContainer>
 
-                <Menu.Item key='profile' style={{ float: "right" }}>
-                    <Link to={profileURL}>{userName}</Link>
-                </Menu.Item>
-
-                <Menu.Item key='login' style={{ float: "right" }}>
-                    <Link to='/login'>Login</Link>
-                </Menu.Item>
-
-                <Menu.Item key='signup' style={{ float: "right" }}>
-                    <Link to='/signup'>SignUp</Link>
-                </Menu.Item>
-
-                <Menu.Item key='create-project' style={{ float: "right" }}>
-                    <Link to='/projects/create'>Create a new Project</Link>
-                </Menu.Item>
-
-            </Menu>
-        </AntHeader>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="ml-auto" activeKey={props.location.pathname}>
+                    <Form inline>
+                        <FormControl
+                            type="text"
+                            placeholder="Search Tags"
+                            className="mr-sm-2"
+                        />
+                        <Button variant="outline-light">Search</Button>
+                    </Form>
+                    <LinkContainer to="/project/create">
+                        <Nav.Link>Create a new Project</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/login">
+                        <Nav.Link>Login</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/signup">
+                        <Nav.Link>Register</Nav.Link>
+                    </LinkContainer>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     );
 };
-export default Header;
+export default withRouter(Header);

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { markdown } from "markdown";
+
 import { getSampleProject } from "../../ProjectService";
-import { Button } from "antd";
+
+import { Button } from "react-bootstrap";
 
 // TODO: If one of the collaborators is logged in user,
 //   add "Edit" button
@@ -26,14 +28,12 @@ const ProjectView = props => {
     });
 
     return (
-        <div>
+        <>
+            <div className="clearfix mb-3" />
+
             <div style={{ color: "red" }}>{errMsg}</div>
 
-            <div style={{ float: "left", textDecoration: "underline" }}>
-                <h1>{currentProject.title}</h1>
-            </div>
             <div style={{ float: "right" }}>
-                <p>{currentProject.creator}</p>
                 {currentProject.creator === loggedInUser ? (
                     <Button
                         onClick={() =>
@@ -42,12 +42,17 @@ const ProjectView = props => {
                             )
                         }
                     >
-                        Edit
+                        {currentProject.creator} - Edit
                     </Button>
                 ) : null}
             </div>
-
-            <div style={{ clear: "both" }} />
+            <div
+                className="text-center"
+                style={{ textDecoration: "underline" }}
+            >
+                <h1>{currentProject.title}</h1>
+            </div>
+            <div className="clearfix" />
 
             <h4>{currentProject.summary}</h4>
             <hr />
@@ -60,7 +65,7 @@ const ProjectView = props => {
             ) : (
                 <div />
             )}
-        </div>
+        </>
     );
 };
 

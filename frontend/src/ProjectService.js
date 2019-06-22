@@ -5,11 +5,12 @@
 const sampleProjects = [
     {
         id: 1,
-        title: "My Project1",
+        title: "Foo bar",
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "bobby123",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*\n\nEst adipisicing commodo id sit esse in ea consequat consequat qui consectetur amet qui.\n\nPariatur cillum et fugiat do sit exercitation incididunt adipisicing amet ex Lorem qui consectetur amet.",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
     },
@@ -19,7 +20,8 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "tomboy124",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
     },
@@ -29,7 +31,8 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "bobby123",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
     },
@@ -39,7 +42,8 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "bobby123",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
     },
@@ -49,12 +53,12 @@ const sampleProjects = [
         summary:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         creator: "bobby123",
-        content: "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*",
         tags: "software hardware",
         collaborators: "bsmith@example.com"
     }
 ];
-
 
 // functions
 export const getSampleProjects = () => {
@@ -71,7 +75,7 @@ export const getSampleProject = id => {
             sampleProjects.forEach(project => {
                 if (+id === project.id) {
                     resolve(project);
-                } 
+                }
             });
         } else {
             reject(new Error("Could not load projects"));

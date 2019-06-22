@@ -1,29 +1,32 @@
 import React from "react";
-import {withRouter} from 'react-router';
-import { Card, Row, Col } from "antd";
+import { withRouter } from "react-router";
+
+import { Card, Row, Col } from "react-bootstrap";
 
 const CardView = props => {
     const cards = props.projects.map(project => {
         return (
             <Col
-                xs={24}
-                sm={12}
-                md={12}
-                lg={8}
-                xl={6}
+                xs={12}
+                sm={6}
+                md={6}
+                lg={4}
+                xl={4}
                 key={project.id}
                 style={{ marginBottom: "16px" }}
             >
                 <Card
-                    key={project.id}
-                    title={project.title}
-                    extra={project.author}
-                    hoverable={true}
                     onClick={() =>
                         props.history.push(`/projects/${project.id}`)
                     }
                 >
-                    {project.summary}
+                    <Card.Header>{project.title}</Card.Header>
+                    <Card.Body>
+                        <Card.Text>{project.summary}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer className="text-muted">
+                        - {project.creator}
+                    </Card.Footer>
                 </Card>
             </Col>
         );
@@ -31,7 +34,7 @@ const CardView = props => {
 
     return (
         <div>
-            <Row gutter={16}>{cards}</Row>
+            <Row>{cards}</Row>
         </div>
     );
 };

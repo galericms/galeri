@@ -1,72 +1,61 @@
-import React from "react";
-import { Form, Input, Icon, Button } from "antd";
+import React, { useState } from "react";
 
-class Login extends React.Component {
-    constructor(props) {
-        super(props);
+import {
+    Form,
+    FormGroup,
+    FormControl,
+    FormLabel,
+    Button
+} from "react-bootstrap";
 
-        this.state = {
-            email: "",
-            password: ""
-        };
-    }
+const Login = () => {
+    const [user, setUser] = useState({
+        email: "",
+        password: ""
+    });
 
-    handleSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log("Received values of form: ", values);
-                //do login
-            }
-        });
+        console.log(user);
     };
 
-    render() {
-        const { getFieldDecorator } = this.props.form;
+    const handleChange = e => {
+        const value = e.target.value;
+        setUser({ ...user, [e.target.name]: value });
+    };
 
-        return (
-            <div style={{ margin: "auto", maxWidth: "400px" }}>
-                <h1>Login below:</h1>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Item label='Email'>
-                        {getFieldDecorator("email", {
-                            rules: [{ required: true, message: "Email!" }]
-                        })(
-                            <Input
-                                prefix={<Icon type='mail' />}
-                                placeholder='email'
-                            />
-                        )}
-                    </Form.Item>
+    return (
+        <div>
+            <h1 className="text-center">Login below:</h1>
+            <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                    <FormLabel>Email: </FormLabel>
+                    <FormControl
+                        type="text"
+                        name="email"
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
 
-                    <Form.Item label='Password'>
-                        {getFieldDecorator("password", {
-                            rules: [{ required: true, message: "password!!!" }]
-                        })(
-                            <Input.Password
-                                visibilityToggle={true}
-                                prefix={<Icon type='safety' />}
-                                placeholder='Password'
-                            />
-                        )}
-                    </Form.Item>
-
-                    <Button
-                        type='primary'
-                        htmlType='submit'
-                        style={{
-                            display: "block",
-                            margin: "auto",
-                            marginTop: "24px"
-                        }}
-                    >
-                        Sign Up
+                <FormGroup>
+                    <FormLabel>Password:</FormLabel>
+                    <FormControl
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
+                <div className="text-center">
+                    <Button type="submit" variant="primary">
+                        Submit
                     </Button>
-                </Form>
-            </div>
-        );
-    }
-}
+                </div>
+            </Form>
+        </div>
+    );
+};
 
-const LoginForm = Form.create()(Login);
+const LoginForm = Login;
 export default LoginForm;
