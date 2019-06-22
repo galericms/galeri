@@ -1,1 +1,9 @@
-# backend
+# Server
+
+## Prerequisites
+
+## Getting Started
+
+```
+
+```
