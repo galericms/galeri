@@ -15,8 +15,6 @@ import ProjectView from "./components/project/View";
 import ProjectCreate from "./components/project/Create";
 import ProjectModify from "./components/project/Modify";
 
-import { getSampleProjects } from "./ProjectService";
-
 import { Container } from "react-bootstrap";
 
 class App extends Component {
@@ -24,19 +22,9 @@ class App extends Component {
         super(props);
 
         this.state = {
-            title: "Galeri",
-            projects: []
+            title: "Galeri"
         };
     }
-
-    // componentDidMount() {
-    //     getSampleProjects().then(
-    //         response => {
-    //             this.setState({ projects: response });
-    //         },
-    //         err => console.error(err.message)
-    //     );
-    // }
 
     doSearch = query => {
         window.alert("You searched: " + query);
@@ -52,27 +40,21 @@ class App extends Component {
                 <Container>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        {/* <Route
-                            path="/"
-                            exact
-                            render={props => (
-                                <Home projects={this.state.projects} />
-                            )}
-                        /> */}
                         <Route path="/about" component={About} />
                         <Route path="/contact" component={Contact} />
-
                         <Route path="/signup" component={SignUp} />
                         <Route path="/login" component={Login} />
-                        <Route path="/profile/:id" component={Profile} />
+                        <Route exact path="/profile/:id" component={Profile} />
 
                         <Route
+                            exact
                             path="/project/create"
-                            component={props => <ProjectCreate {...props} />}
+                            component={ProjectCreate}
                         />
                         <Route
+                            exact
                             path="/projects/:id/edit"
-                            component={props => <ProjectModify {...props} />}
+                            component={ProjectModify}
                         />
                         <Route
                             exact

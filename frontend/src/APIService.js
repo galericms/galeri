@@ -53,7 +53,9 @@ const sampleProjects = [
                 email: "tuser@ssebs.com",
                 name: "Test User"
             }
-        ]
+        ],
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*\n\nEst adipisicing commodo id sit esse in ea consequat consequat qui consectetur amet qui.\n\nPariatur cillum et fugiat do sit exercitation incididunt adipisicing amet ex Lorem qui consectetur amet."
     },
     {
         id: 2,
@@ -65,7 +67,9 @@ const sampleProjects = [
             email: "aaron@ssebs.com",
             name: "Aaron Ang"
         },
-        collaborators: []
+        collaborators: [],
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*\n\nEst adipisicing commodo id sit esse in ea consequat consequat qui consectetur amet qui.\n\nPariatur cillum et fugiat do sit exercitation incididunt adipisicing amet ex Lorem qui consectetur amet."
     },
     {
         id: 3,
@@ -84,7 +88,9 @@ const sampleProjects = [
                 email: "ssebs@ssebs.com",
                 name: "Sebastian Safari"
             }
-        ]
+        ],
+        content:
+            "> This is a sample project\n\n- item1\n- item2\n  - *subitem1*\n\nEst adipisicing commodo id sit esse in ea consequat consequat qui consectetur amet qui.\n\nPariatur cillum et fugiat do sit exercitation incididunt adipisicing amet ex Lorem qui consectetur amet."
     }
 ];
 
@@ -201,7 +207,7 @@ export const getProjects = query => {
 export const getProject = id => {
     return new Promise((resolve, reject) => {
         if (getProject) {
-            getProject.forEach(proj => {
+            sampleProjects.forEach(proj => {
                 if (+proj.id === +id) {
                     resolve(proj);
                 }

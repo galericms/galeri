@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// import { Form, Input, Button, Mention } from "antd";
 import {
     Form,
     FormControl,
@@ -14,7 +13,7 @@ import "tui-editor/dist/tui-editor.min.css";
 import "tui-editor/dist/tui-editor-contents.min.css";
 import { Editor } from "@toast-ui/react-editor";
 
-import { getSampleProject } from "../../ProjectService";
+import { getProject } from "../../APIService";
 
 const ModifyProject = props => {
     const [project, setProject] = useState({
@@ -28,9 +27,11 @@ const ModifyProject = props => {
     });
     const editorRef = React.createRef();
 
+    // TODO: Use react-select for autofill / dropdown
+
     useEffect(() => {
         let isSubscribed = true;
-        getSampleProject(props.match.params.id)
+        getProject(props.match.params.id)
             .then(resp => {
                 if (isSubscribed) {
                     // console.log(resp);
@@ -46,7 +47,7 @@ const ModifyProject = props => {
         if (editorRef.current) {
             editorRef.current.getInstance().setValue(project.content);
         }
-    }, [project.content])
+    }, [project.content]);
 
     const uploadImage = (blob, callback) => {
         // Imgur client ID: 41f5c8b3bfcd69e

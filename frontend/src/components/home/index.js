@@ -1,11 +1,50 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router";
 
-import { Button, Container } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import { GridTwoUpIcon, ListIcon } from "react-open-iconic-svg";
 
-import CardView from "./CardView";
-import DetaiView from "./DetailView";
+import ProjCard from "./ProjCard";
 import { getAllProjects } from "../../APIService";
+
+const CardView = props => {
+    return (
+        <Row>
+            {props.projects.map(project => (
+                <Col
+                    xs={12}
+                    sm={12}
+                    md={6}
+                    lg={4}
+                    xl={4}
+                    key={project.id}
+                    style={{ marginBottom: "16px" }}
+                >
+                    <ProjCard project={project} />
+                </Col>
+            ))}
+        </Row>
+    );
+};
+const DetailView = props => {
+    return (
+        <Row>
+            {props.projects.map(project => (
+                <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                    key={project.id}
+                    style={{ marginBottom: "16px" }}
+                >
+                    <ProjCard project={project} />
+                </Col>
+            ))}
+        </Row>
+    );
+};
 
 const Home = () => {
     const [isCardView, setIsCardView] = useState(true);
@@ -13,14 +52,13 @@ const Home = () => {
 
     useEffect(() => {
         getAllProjects().then(resp => {
-            console.log(resp);
             setProjects(resp);
         });
     }, []);
 
     return (
-        <Container fluid>
-            {projects ? (
+        <>
+            {projects && (
                 <>
                     <div className="clearfix mb-3" />
                     <Button
@@ -41,13 +79,11 @@ const Home = () => {
                     {isCardView ? (
                         <CardView projects={projects} />
                     ) : (
-                        <DetaiView projects={projects} />
+                        <DetailView projects={projects} />
                     )}
                 </>
-            ) : (
-                <div />
             )}
-        </Container>
+        </>
     );
 };
-export default Home;
+export default withRouter(Home);

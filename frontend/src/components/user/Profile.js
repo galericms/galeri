@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import { getSampleUser } from "../../UserService";
+import { getUser } from "../../APIService";
 
 const Profile = ({ match }) => {
     const [currentUser, setCurrentUser] = useState({});
 
     useEffect(() => {
-        getSampleUser(match.params.id).then(
+        getUser(match.params.id).then(
             response => {
                 setCurrentUser(response);
             },
@@ -19,10 +19,10 @@ const Profile = ({ match }) => {
             <h1>Profile: {match.params.id} </h1>
             <div>
                 <p>
-                    {currentUser.first} {currentUser.last}
+                    {currentUser.name}
                 </p>
                 <p>{currentUser.email}</p>
-                <p>{currentUser.userName}</p>
+                <p>{currentUser.username}</p>
             </div>
         </div>
     );

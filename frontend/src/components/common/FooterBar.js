@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 
 const Footer = () => (
     <footer>
-        <div style={{ textAlign: "center" }}>
-            <Link to='/about'>About</Link>&nbsp;
-            <Link to='/contact'>Contact</Link>&nbsp;
-            <br/>
+        <div
+            style={{
+                textAlign: "center",
+                borderTop: "1px gray solid",
+                marginTop: "2rem"
+            }}
+        >
+            <Link to="/about">About</Link>&nbsp;
+            <Link to="/contact">Contact</Link>&nbsp;
+            <br />
             Footer, etc
         </div>
     </footer>
