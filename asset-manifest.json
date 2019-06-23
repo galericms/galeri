@@ -1,16 +1,16 @@
 {
   "main.css": "/galeri/static/css/main.f3873898.chunk.css",
-  "main.js": "/galeri/static/js/main.01e0c388.chunk.js",
-  "main.js.map": "/galeri/static/js/main.01e0c388.chunk.js.map",
+  "main.js": "/galeri/static/js/main.96b816d4.chunk.js",
+  "main.js.map": "/galeri/static/js/main.96b816d4.chunk.js.map",
   "runtime~main.js": "/galeri/static/js/runtime~main.5eb27fb8.js",
   "runtime~main.js.map": "/galeri/static/js/runtime~main.5eb27fb8.js.map",
-  "static/css/2.5378da36.chunk.css": "/galeri/static/css/2.5378da36.chunk.css",
-  "static/js/2.1fc77899.chunk.js": "/galeri/static/js/2.1fc77899.chunk.js",
-  "static/js/2.1fc77899.chunk.js.map": "/galeri/static/js/2.1fc77899.chunk.js.map",
+  "static/css/2.1f9afefb.chunk.css": "/galeri/static/css/2.1f9afefb.chunk.css",
+  "static/js/2.3b021785.chunk.js": "/galeri/static/js/2.3b021785.chunk.js",
+  "static/js/2.3b021785.chunk.js.map": "/galeri/static/js/2.3b021785.chunk.js.map",
   "index.html": "/galeri/index.html",
-  "precache-manifest.140b8d6b23b3bc3c971eed0c53617cc9.js": "/galeri/precache-manifest.140b8d6b23b3bc3c971eed0c53617cc9.js",
+  "precache-manifest.0d601423315607faa1093c19d19c752d.js": "/galeri/precache-manifest.0d601423315607faa1093c19d19c752d.js",
   "service-worker.js": "/galeri/service-worker.js",
-  "static/css/2.5378da36.chunk.css.map": "/galeri/static/css/2.5378da36.chunk.css.map",
+  "static/css/2.1f9afefb.chunk.css.map": "/galeri/static/css/2.1f9afefb.chunk.css.map",
   "static/css/main.f3873898.chunk.css.map": "/galeri/static/css/main.f3873898.chunk.css.map",
   "static/media/tui-editor.min.css": "/galeri/static/media/tui-editor.30dd0f52.png"
 }
