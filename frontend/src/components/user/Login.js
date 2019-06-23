@@ -25,7 +25,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div style={{ maxWidth: "550px", margin: "auto" }}>
             <h1 className="text-center">Login below:</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
